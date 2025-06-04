@@ -2,6 +2,9 @@ import React from "react";
 import './navbar.css'
 import { NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase.init";
+import { Bounce, toast } from "react-toastify";
 const Navbar = () => {
   const { user, loading } = useAuth()
   let userName = "";
@@ -9,7 +12,28 @@ const Navbar = () => {
         let str = user?.displayName;
         let newStr = str?.replace(" ", "_");
         userName = newStr
-  }     
+  }  
+  
+  const handleSignOut = () => {
+    signOut(auth)
+    .then(()=>{
+      toast.success('Sign Out Successful!', {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+      });
+    })
+      .catch((error => {
+      console.log(error);
+      
+    }))
+  }
   return (
     <div>
       <div className="navbar w-11/12 mx-auto py-9 ">
@@ -51,7 +75,7 @@ const Navbar = () => {
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV">
                             <div className="w-12 rounded-full">
-                            <img src={user?.photoURL} />
+                            <img src={user && user?.photoURL } />
                             </div>
                         </div>
                             
@@ -71,7 +95,7 @@ const Navbar = () => {
                         </div>
                         
                         <div className=" ">
-                            <h1>Sign Out</h1>
+                            <button onClick={handleSignOut}>Sign Out</button>
                         </div>
                     </div>
     </div>

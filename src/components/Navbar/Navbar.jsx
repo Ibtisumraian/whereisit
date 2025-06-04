@@ -1,7 +1,15 @@
 import React from "react";
 import './navbar.css'
 import { NavLink } from "react-router";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
+  const { user, loading } = useAuth()
+  let userName = "";
+  if (!loading) {
+        let str = user?.displayName;
+        let newStr = str?.replace(" ", "_");
+        userName = newStr
+  }     
   return (
     <div>
       <div className="navbar w-11/12 mx-auto py-9 ">
@@ -14,9 +22,9 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <div className="flex flex-col items-center gap-3 text-base font-semibold">
-            <button className="">Home</button>
-            <button className="">Sign In</button>
-            <button className="">Sign Out</button>
+            <NavLink className="">Home</NavLink>
+            <NavLink className="">Sign In</NavLink>
+            <NavLink to='/SignUp'>Sign Up</NavLink>
           
           </div>
       </ul>
@@ -27,29 +35,33 @@ const Navbar = () => {
     <div className=" hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <div className="flex items-center gap-7 text-base font-semibold">
-            <button className="">Home</button>
-            <button className="">Sign In</button>
-            <button className="">Sign Out</button>
+            <NavLink className="">Home</NavLink>
+            {
+                  !user && <>
+                    <NavLink className="">Sign In</NavLink>
+                    <NavLink to='/SignUp'>Sign Up</NavLink>
+                  </>
+            }
           
           </div>
     </ul>
   </div>
-    <div className=" dropdown dropdown-end">
+     <div className=" dropdown dropdown-end">
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV">
                             <div className="w-12 rounded-full">
-                            <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                            <img src={user?.photoURL} />
                             </div>
                         </div>
                             
-                            <div className="hide absolute text-sm -top-5 -left-4">Ibtisum_Raian</div>
+                            <div className="hide absolute text-sm -top-5 -left-4">{user ? userName : ""}</div>
                         </div>
                     </div>
                       <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  shadow-sm">
                           <div className="border-b flex flex-col gap-1 text-md pb-2">
-                              <h1 className="font-bold">Ibtisum Raian</h1>
-                              <p>ibtisumraian@gamil.com</p>
+                              <h1 className="font-bold">{user ? user?.displayName : "User Name"}</h1>
+                              <p>{user ? user?.email : "User Email"}</p>
                           </div>
                         
                         <div className="border-b flex flex-col gap-2 text-md py-2 mb-2">
@@ -63,6 +75,7 @@ const Navbar = () => {
                         </div>
                     </div>
     </div>
+
   </div>
   {/* <div className="navbar-end">
     <a className="btn">Button</a>

@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import { FaCalendarDays } from 'react-icons/fa6';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
+import CommonlyLostAndFound from '../../components/CommonlyLostAndFound/CommonlyLostAndFound';
 
 const Home = () => {
     return (
@@ -103,7 +104,7 @@ const Home = () => {
             </div>
 
             <HowItWorks></HowItWorks>
-            
+            <CommonlyLostAndFound></CommonlyLostAndFound>
         </div>
     );
 };

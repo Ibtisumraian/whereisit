@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
@@ -77,8 +77,9 @@ const SignIn = () => {
             }
         })
     }
+    const constraintsRef = useRef(null)
     return (
-        <div className={`sm:p-4 flex justify-center items-center  `}>
+        <motion.div ref={constraintsRef} className={`sm:p-4 flex justify-center items-center  `}>
             <div className={`sm:p-4 px-5 sm:px-18 py-4 mt-8  flex justify-center items-center `} >
                 <div className='grid grid-cols-2 bg-[#00A79D] rounded-full'>
                     <div className={`flex flex-col justify-center items-center w-fit p-8 sm:px-18 bg-white rounded-4xl drop-shadow-2xl sm:my-22`}>
@@ -164,6 +165,9 @@ const SignIn = () => {
 
                     <div className=' rounded-full'>
                     <motion.img
+                    drag
+                    dragConstraints={constraintsRef}
+                    dragElastic={0.2}
                     initial={{ opacity: 0, y: 50 }}    
                     animate={{ opacity: 1, y: [0, 20, 0], x: [0, 20, 0] }}
                     transition={{
@@ -183,7 +187,7 @@ const SignIn = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

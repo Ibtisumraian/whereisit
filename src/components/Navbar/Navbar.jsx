@@ -1,12 +1,13 @@
 import React from "react";
 import './navbar.css'
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import { Bounce, toast } from "react-toastify";
 const Navbar = () => {
   const { user, loading } = useAuth()
+  const navigate = useNavigate()
   let userName = "";
   if (!loading) {
         let str = user?.displayName;
@@ -28,6 +29,7 @@ const Navbar = () => {
           theme: "colored",
           transition: Bounce,
       });
+      navigate('/')
     })
       .catch((error => {
       console.log(error);
@@ -46,9 +48,9 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <div className="flex flex-col items-center gap-3 text-base font-semibold">
-            <NavLink className="">Home</NavLink>
-            <NavLink className="">Sign In</NavLink>
-            <NavLink to='/SignUp'>Sign Up</NavLink>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/Signin'>Sign In</NavLink>
+            <NavLink to='/Signup'>Sign Up</NavLink>
           
           </div>
       </ul>
@@ -59,23 +61,23 @@ const Navbar = () => {
     <div className=" hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <div className="flex items-center gap-7 text-base font-semibold">
-            <NavLink className="">Home</NavLink>
+            <NavLink to='/'>Home</NavLink>
             {
                   !user && <>
-                    <NavLink to='/SignIn'>Sign In</NavLink>
-                    <NavLink to='/SignUp'>Sign Up</NavLink>
+                    <NavLink to='/Signin'>Sign In</NavLink>
+                    <NavLink to='/Signup'>Sign Up</NavLink>
                   </>
             }
           
           </div>
     </ul>
   </div>
-     <div className=" dropdown dropdown-end">
+     <div className=" dropdown dropdown-end hover:cursor-pointer">
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV">
                             <div className="w-12 rounded-full">
-                            <img src={user && user?.photoURL } />
+                            <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
                             </div>
                         </div>
                             
@@ -89,7 +91,7 @@ const Navbar = () => {
                           </div>
                         
                         <div className="border-b flex flex-col gap-2 text-md py-2 mb-2">
-                            <NavLink>Add Lost & Found Item </NavLink>
+                            <NavLink to='/AddLostAndFound'>Add Lost & Found Item </NavLink>
                             <NavLink>All Recovered Items</NavLink>
                             <NavLink>Manage My Items</NavLink>
                         </div>

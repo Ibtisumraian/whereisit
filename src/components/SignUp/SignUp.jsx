@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { Bounce, toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
@@ -93,11 +93,15 @@ const SignUp = () => {
             }
         })
     }
+    const constraintsRef = useRef(null)
     return (
-        <div className={`p2 sm:p-6 flex justify-center items-center `}>
+        <motion.div ref={constraintsRef} className={` sm:p-6 flex justify-center items-center `}>
             <div className='grid grid-cols-2 items-center justify-center bg-[#00A79D] rounded-full'>
                 <div className=''>
                     <motion.img
+                    drag
+                    dragConstraints={constraintsRef}
+                    dragElastic={0.2}
                     initial={{ opacity: 0, y: 50 }}    
                     animate={{ opacity: 1, y: [0, 20, 0], x: [0, 20, 0] }}
                     transition={{
@@ -113,7 +117,7 @@ const SignUp = () => {
                             ease: "easeInOut"
                         }
                         }}
-                    className='w-[500px] drop-shadow-xl/100' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749192761/ChatGPT_Image_Jun_6__2025__11_36_04_AM-removebg-preview_bb7eic.png" alt="" />
+                    className='relative w-[500px] drop-shadow-xl/100' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749192761/ChatGPT_Image_Jun_6__2025__11_36_04_AM-removebg-preview_bb7eic.png" alt="" />
                 </div>
                 <div className={`flex justify-center items-center px-5 sm:px-12 sm:py-4 h-[650px] bg-white rounded-4xl drop-shadow-2xl `}>
 
@@ -262,7 +266,7 @@ const SignUp = () => {
                 </div>
                 </div>
             </div>
-    </div>
+    </motion.div>
     );
 };
 

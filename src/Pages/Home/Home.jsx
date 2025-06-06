@@ -3,8 +3,11 @@ import Banner from '../../components/Banner/Banner';
 import { FaCalendarDays } from 'react-icons/fa6';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import CommonlyLostAndFound from '../../components/CommonlyLostAndFound/CommonlyLostAndFound';
+import useAuth from '../../hooks/useAuth';
 
 const Home = () => {
+    const { user } = useAuth()
+    console.log(user);
     return (
         <div>
             <Banner></Banner>

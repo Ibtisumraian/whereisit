@@ -24,7 +24,7 @@ const Banner = () => {
     <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 6000 }}
         loop
         className="w-full"
     >
@@ -57,9 +57,21 @@ const Banner = () => {
             </Fade>
         </div>
         <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut' }} 
+                    initial={{ opacity: 0, y: 50 }}    
+                    animate={{ opacity: 1, y: [0, 40, 0], x: [0, 40, 0] }}
+                    transition={{
+                        opacity: { duration: 1 },
+                        y: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        x: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }
+                        }}
         >
           <Lottie animationData={sliderOne} loop={true} className='w-[500px]'></Lottie>
           
@@ -94,7 +106,25 @@ const Banner = () => {
               </Fade>
                 
         </div>
-        <Lottie animationData={sliderTwo} loop={true} className='w-[500px]'></Lottie>
+        <motion.div
+                    initial={{ opacity: 0, y: 50 }}    
+                    animate={{ opacity: 1, y: [0, 40, 0], x: [0, 40, 0] }}
+                    transition={{
+                        opacity: { duration: 1 },
+                        y: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        x: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }
+                        }} 
+        >
+          <Lottie animationData={sliderTwo} loop={true} className='w-[500px]'></Lottie>
+        </motion.div>  
       </div>
   </SwiperSlide>
   
@@ -103,7 +133,25 @@ const Banner = () => {
       src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
       className="w-full" /> */}
       <div className='flex items-center justify-evenly gap-10 w-full h-full   '>
-        <Lottie animationData={sliderThree} loop={true} className='w-[500px]'></Lottie>
+        <motion.div
+                    initial={{ opacity: 0, y: 50 }}    
+                    animate={{ opacity: 1, y: [0, 30, 0], x: [0, 50, 0] }}
+                    transition={{
+                        opacity: { duration: 1 },
+                        y: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        x: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }
+                        }} 
+        >
+          <Lottie animationData={sliderThree} loop={true} className='w-[500px]'></Lottie>        
+        </motion.div>
         <div className='flex flex-col gap-6'>
           <Fade direction="right" duration={700}>
             <h1 className='text-5xl text-white fontInter font-bold'>Lost a Beloved Pet? <br /> 

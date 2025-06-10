@@ -8,7 +8,7 @@ const SignIn = () => {
     const { userSignInWithEmailPass, userSignInWithGoogle} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-
+console.log(typeof(location.state), "=", location.state );
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()
         const email = e.target.email.value

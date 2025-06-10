@@ -5,15 +5,18 @@ import useAuth from "../../hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import { Bounce, toast } from "react-toastify";
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+import { motion } from 'framer-motion';
 const Navbar = () => {
-  const { user, loading } = useAuth()
+  const { user } = useAuth()
   const navigate = useNavigate()
-  let userName = "";
-  if (!loading) {
-        let str = user?.displayName;
-        let newStr = str?.replace(" ", "_");
-        userName = newStr
-  }  
+  // let userName = "";
+  // if (!loading) {
+  //       let str = user?.displayName;
+  //       let newStr = str?.replace(" ", "_");
+  //       userName = newStr
+  // }  
   
   const handleSignOut = () => {
     signOut(auth)
@@ -37,7 +40,7 @@ const Navbar = () => {
     }))
   }
   return (
-    <div>
+    <div className="shadow mb-10">
       <div className="navbar w-11/12 mx-auto py-9 ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -49,39 +52,66 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <div className="flex flex-col items-center gap-3 text-base font-semibold">
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/Signin'>Sign In</NavLink>
-            <NavLink to='/Signup'>Sign Up</NavLink>
+            <NavLink to='/'>Lost & Found Items</NavLink>
           
           </div>
       </ul>
     </div>
-    <a className=" hidden md:block text-4xl fontInter font-bold text-[#00A79D]">WhereIsIt</a>
+    <motion.a 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 2, y: 0 }}
+      transition={{ duration: 1, ease: 'easeOut' }}
+    className=" hidden md:block text-4xl fontInter font-bold text-[#00A79D] drop-shadow-xl/30">WhereIsIt</motion.a>
   </div>
+  <motion.div 
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 2, y: 0 }}
+    transition={{ duration: 1.5, ease: 'easeOut' }}
+  className="navbar-center gap-6 hidden lg:flex">
+    <NavLink to='/'>Home</NavLink>
+    <NavLink to='/'>Lost & Found Items</NavLink>
+  </motion.div>
   <div className="navbar-end flex gap-7">
-    <div className=" hidden lg:flex">
+    <div className=" ">
     <ul className="menu menu-horizontal px-1">
-      <div className="flex items-center gap-7 text-base font-semibold">
-            <NavLink to='/'>Home</NavLink>
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 2, y: 0 }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+      className="flex items-center gap-7 text-base font-semibold">
+            
             {
-                  !user && <>
-                    <NavLink to='/Signin'>Sign In</NavLink>
-                    <NavLink to='/Signup'>Sign Up</NavLink>
-                  </>
+                  !user ? <NavLink to='/Signin'>Sign In</NavLink> : <button onClick={handleSignOut} className="cursor-pointer"> Sign Out</button>
+               
             }
           
-          </div>
+          </motion.div>
     </ul>
   </div>
-     <div className=" dropdown dropdown-end hover:cursor-pointer">
+    {
+      user && <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 2, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      className=" dropdown dropdown-end ">
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV">
                             <div className="w-12 rounded-full">
-                            <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
+                              <a data-tooltip-id="my-tooltip" data-tooltip-content={user ? user.displayName : "User Name"}>
+                                  <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
+                              </a>
+                              <Tooltip id="my-tooltip" 
+                                style={{
+                                  backgroundColor: '#00A79D',
+                                  color: 'white',
+                                  borderRadius: '10px',
+                                }}
+                                                            />
                             </div>
                         </div>
                             
-                            <div className="hide absolute text-sm -top-5 -left-4">{user ? userName : ""}</div>
+                            {/* <div className="hide absolute text-sm -top-5 -left-4">{user ? userName : ""}</div> */}
                         </div>
                     </div>
                       <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  shadow-sm">
@@ -90,17 +120,15 @@ const Navbar = () => {
                               <p>{user ? user?.email : "User Email"}</p>
                           </div>
                         
-                        <div className="border-b flex flex-col gap-2 text-md py-2 mb-2">
-                            <NavLink to='/AddLostAndFound'>Add Lost & Found Item </NavLink>
-                            <NavLink>All Recovered Items</NavLink>
-                            <NavLink>Manage My Items</NavLink>
+                        <div className=" flex flex-col gap-3 text-md  my-3">
+                            <NavLink className="w-fit" to='/AddLostAndFound'>Add Lost & Found Item </NavLink>
+                            <NavLink className="w-fit">All Recovered Items</NavLink>
+                            <NavLink className="w-fit">Manage My Items</NavLink>
                         </div>
                         
-                        <div className=" ">
-                            <button onClick={handleSignOut} className="cursor-pointer">Sign Out</button>
-                        </div>
                     </div>
-    </div>
+    </motion.div>
+    }
 
   </div>
   {/* <div className="navbar-end">

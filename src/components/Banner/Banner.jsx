@@ -25,6 +25,7 @@ const Banner = () => {
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
         autoplay={{ delay: 6000 }}
+        scrollbar={{ draggable: true }}
         loop
         className="w-full"
     >

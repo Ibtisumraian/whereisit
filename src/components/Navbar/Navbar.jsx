@@ -97,7 +97,7 @@ const Navbar = () => {
                         </div>
                         
                         <div className=" ">
-                            <button onClick={handleSignOut}>Sign Out</button>
+                            <button onClick={handleSignOut} className="cursor-pointer">Sign Out</button>
                         </div>
                     </div>
     </div>

@@ -67,9 +67,9 @@ const Navbar = () => {
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 2, y: 0 }}
     transition={{ duration: 1.5, ease: 'easeOut' }}
-  className="navbar-center gap-6 hidden lg:flex">
-    <NavLink to='/'>Home</NavLink>
-    <NavLink to='/'>Lost & Found Items</NavLink>
+  className="navbar-center gap-4 hidden lg:flex">
+    <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Home</NavLink>
+    <NavLink to='/LostAndFoundItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Lost & Found Items</NavLink>
   </motion.div>
   <div className="navbar-end flex gap-7">
     <div className=" ">
@@ -81,7 +81,7 @@ const Navbar = () => {
       className="flex items-center gap-7 text-base font-semibold">
             
             {
-                  !user ? <NavLink to='/Signin'>Sign In</NavLink> : <button onClick={handleSignOut} className="cursor-pointer"> Sign Out</button>
+                  !user ? <NavLink to='/Signin' className="hover:bg-[#00A79D10] py-1 px-3  text-gray-500 rounded-xl">Sign In</NavLink> : <button onClick={handleSignOut} className="cursor-pointer hover:bg-[#00A79D10] py-2 px-3  text-gray-500 rounded-xl"> Sign Out</button>
                
             }
           
@@ -96,8 +96,8 @@ const Navbar = () => {
       className=" dropdown dropdown-end ">
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
-                            <div className="avatar myDIV">
-                            <div className="w-12 rounded-full">
+                            <div className="avatar myDIV ">
+                            <div className="w-12 rounded-full border-[3px] border-[#00A79D]">
                               <a data-tooltip-id="my-tooltip" data-tooltip-content={user ? user.displayName : "User Name"}>
                                   <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
                               </a>
@@ -121,9 +121,9 @@ const Navbar = () => {
                           </div>
                         
                         <div className=" flex flex-col gap-3 text-md  my-3">
-                            <NavLink className="w-fit" to='/AddLostAndFound'>Add Lost & Found Item </NavLink>
-                            <NavLink className="w-fit">All Recovered Items</NavLink>
-                            <NavLink className="w-fit">Manage My Items</NavLink>
+                            <NavLink to='/AddLostAndFound' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500" >Add Lost & Found Item </NavLink>
+                            <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">All Recovered Items</NavLink>
+                            <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">Manage My Items</NavLink>
                         </div>
                         
                     </div>

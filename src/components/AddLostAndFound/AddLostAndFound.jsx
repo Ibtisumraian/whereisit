@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { IoSearch } from 'react-icons/io5';
 import 'react-datepicker/dist/react-datepicker.css';
 import { motion } from "framer-motion";
+import useAuth from '../../hooks/useAuth';
+import { FaWpforms } from 'react-icons/fa6';
 
 const AddLostAndFound = () => {
+    const { user } = useAuth()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const formattedDate = selectedDate.toLocaleDateString('en-US');
     console.log(formattedDate);
     
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()
-        console.log('Form submit');
+        const form = e.target
+        const formData = new FormData(form)
+        const post = Object.fromEntries(formData.entries());
+        post.date = formattedDate
+        post.user_name=user?.displayName
+        post.email=user?.email
+        console.log('Form submit',post);
         
     }
     return (
@@ -65,16 +73,32 @@ const AddLostAndFound = () => {
                                             <div>
                                                 <fieldset className="fieldset  w-[250px]">
                                                     <legend className="fieldset-legend text-base">Post Type</legend>
-                                                    <select defaultValue="Post Type" className="select bg-[#00A79D] text-white rounded-2xl">
+                                                    <select name='post_type' defaultValue="Post Type" className="select bg-[#00A79D] text-white rounded-2xl">
                                                         <option disabled={true}>Post Type</option>
                                                         <option className='hover:bg-[#00A79D]'>Lost</option>                                           
                                                         <option className='hover:bg-[#00A79D]'>Found</option>                                           
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            <div className='text-8xl text-[#00A79D] '>
-                                                <IoSearch />
-                                            </div>
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 50 }}    
+                                                animate={{ opacity: 1, y: [0, 15, 0], x: [0, -30, 0] }}
+                                                transition={{
+                                                    opacity: { duration: 1 },
+                                                    y: {
+                                                        duration: 8,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut"
+                                                    },
+                                                    x: {
+                                                        duration: 5,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut"
+                                                    }
+                                                    }}
+                                                className='text-8xl text-[#00A79D] drop-shadow-xl/40'>
+                                                <FaWpforms />
+                                            </motion.div>
                                         </div>
                                         {/* Thumbnail (image url) */}
                                         <div>
@@ -94,6 +118,7 @@ const AddLostAndFound = () => {
                                                 </svg>
                                                 <input
                                                     className=''
+                                                    name='thumbnail'
                                                     type="url"
                                                     required
                                                     placeholder="https://"
@@ -106,21 +131,21 @@ const AddLostAndFound = () => {
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Title</legend>
-                                                <input type="text" className="input rounded-2xl w-full" placeholder="TItle" />
+                                                <input name='title' type="text" className="input rounded-2xl w-full" placeholder="TItle" />
                                             </fieldset>
                                         </div>
                                         {/* Description */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Description</legend>
-                                                <textarea className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
+                                                <textarea name='description' className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
                                             </fieldset>
                                         </div>
                                         {/* Category */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Category</legend>
-                                                <select defaultValue="Select Category" className="select bg-[#00A79D] text-white rounded-2xl w-full">
+                                                <select name='category' defaultValue="Select Category" className="select bg-[#00A79D] text-white rounded-2xl w-full">
                                                     <option disabled={true}>Select Category</option>
                                                     <option className='hover:bg-[#00A79D]'>Pets</option>                                           
                                                     <option className='hover:bg-[#00A79D]'>Documents</option>                                           
@@ -132,14 +157,17 @@ const AddLostAndFound = () => {
                                             </fieldset>
                                         </div>
                                         {/* location and date */}
-                                        <div className='grid grid-cols-2 items-baseline gap-3'>
+                                        <div className='grid grid-cols-2 items-center justify-center gap-3'>
                                             <div>
                                                 <fieldset className="fieldset">
                                                     <legend className="fieldset-legend text-base">Location</legend>
-                                                    <input type="text" className="input rounded-2xl" placeholder="Location" />
+                                                    <input name='location' type="text" className="input rounded-2xl" placeholder="Location" />
                                                 </fieldset>
                                             </div>
                                             <div>
+                                                <div>
+                                                    <h1 className='text-base font-semibold mb-1.5'>Date</h1>
+                                                </div>
                                                 <DatePicker
                                                     className='border border-gray-300 rounded-2xl w-full bg-white'
                                                     showIcon
@@ -174,14 +202,14 @@ const AddLostAndFound = () => {
                                         {/* Contact info */}
                                         <div >
                                             <h1 className='text-base font-semibold mb-2'>Contact</h1>
-                                            <div className='p-2 flex items-center justify-between border border-gray-300 rounded-2xl'>
+                                            <div className='py-2 px-4 flex items-center justify-between bg-white border border-gray-300 rounded-2xl'>
                                                 <div>
                                                     <h1 className='font-semibold'>Name</h1>
-                                                    <p>Ibtisum Raian</p>
+                                                    <p>{ user?.displayName }</p>
                                                 </div>
                                                 <div>
                                                     <h1 className='font-semibold'>Email</h1>
-                                                    <p>ibtisumraian@gmail.com</p>
+                                                    <p>{ user?.email }</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,8 +1,3 @@
-.hide {
-  display: none;
-}
-
-.myDIV:hover + .hide {
-  display: block;
-  color: #00A79D;
+.active{
+  background-color: #00A79D10;
 }

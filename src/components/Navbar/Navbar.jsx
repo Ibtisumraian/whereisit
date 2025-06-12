@@ -52,7 +52,7 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <div className="flex flex-col items-center gap-3 text-base font-semibold">
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/'>Lost & Found Items</NavLink>
+            <NavLink to='/allItems'>Lost & Found Items</NavLink>
           
           </div>
       </ul>
@@ -69,7 +69,7 @@ const Navbar = () => {
     transition={{ duration: 1.5, ease: 'easeOut' }}
   className="navbar-center gap-4 hidden lg:flex">
     <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Home</NavLink>
-    <NavLink to='/LostAndFoundItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Lost & Found Items</NavLink>
+    <NavLink to='/allItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Lost & Found Items</NavLink>
   </motion.div>
   <div className="navbar-end flex gap-7">
     <div className=" ">
@@ -121,7 +121,7 @@ const Navbar = () => {
                           </div>
                         
                         <div className=" flex flex-col gap-3 text-md  my-3">
-                            <NavLink to='/AddLostAndFound' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500" >Add Lost & Found Item </NavLink>
+                            <NavLink to='/addItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500" >Add Lost & Found Item </NavLink>
                             <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">All Recovered Items</NavLink>
                             <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">Manage My Items</NavLink>
                         </div>

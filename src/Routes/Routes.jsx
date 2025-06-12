@@ -6,6 +6,7 @@ import SignIn from "../components/SignIn/SignIn";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import AddLostAndFound from "../components/AddLostAndFound/AddLostAndFound";
 import PrivateRouteTwo from "../components/PrivateRouteTwo/PrivateRouteTwo";
+import AllLostAndFound from "../components/AllLostAndFound/AllLostAndFound";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ export const router = createBrowserRouter([
             Component: Home
         },
         {
-          path: '/AddLostAndFound',
+          path: '/allItems',
+          element: <AllLostAndFound></AllLostAndFound>
+        },
+        {
+          path: '/addItems',
           element: <PrivateRoute><AddLostAndFound></AddLostAndFound></PrivateRoute>
         },
         {

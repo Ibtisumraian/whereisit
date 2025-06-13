@@ -15,12 +15,14 @@ export const router = createBrowserRouter([
     children:[
         {
             index: true,
+            hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
+            loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/items/recent'),
             Component: Home
         },
         {
           path: '/allItems',
           hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-          loader: ()=>fetch('http://localhost:5000/items'),
+          loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/items'),
           element: <AllLostAndFound></AllLostAndFound>
         },
         {

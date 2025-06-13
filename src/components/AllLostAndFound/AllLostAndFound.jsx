@@ -19,7 +19,7 @@ const AllLostAndFound = () => {
         e.preventDefault()
         const title = e.target.search.value
         console.log(title);
-        fetch(`http://localhost:5000/items?title=${title}`)
+        fetch(`https://lost-and-found-server-mu.vercel.app/items?title=${title}`)
         .then(res => res.json())
         .then(data => setItems(data));
     }

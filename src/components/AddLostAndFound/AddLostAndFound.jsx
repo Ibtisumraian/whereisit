@@ -4,25 +4,32 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { motion } from "framer-motion";
 import useAuth from '../../hooks/useAuth';
 import { FaWpforms } from 'react-icons/fa6';
+import { registerLocale } from 'react-datepicker'
+import enGB from 'date-fns/locale/en-GB' // For dd/MM/yyyy format
+registerLocale('en-GB', enGB)
 
 const AddLostAndFound = () => {
     const { user } = useAuth()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const formattedDate = selectedDate.toLocaleDateString('en-US');
-    console.log(formattedDate);
+    const currentDate = formattedDate.split('/')
+    const [mm, dd, yy] = currentDate
+    const splitDate = `${dd}/${mm}/${yy}` 
+    console.log(selectedDate);
     
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()
         const form = e.target
         const formData = new FormData(form)
         const post = Object.fromEntries(formData.entries());
-        post.date = formattedDate
+        post.date = splitDate
         post.user_name=user?.displayName
         post.email = user?.email
         post.recovered = false
+        post.recent_date = selectedDate
         console.log('Form submit',post);
         
-        fetch("http://localhost:5000/items", {
+        fetch("https://lost-and-found-server-mu.vercel.app/items", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -186,12 +193,13 @@ const AddLostAndFound = () => {
                                                     showIcon
                                                     selected={selectedDate}
                                                     onChange={(date) => setSelectedDate(date)}
+                                                    dateFormat="dd/MM/yy"
+                                                    locale="en-GB" 
                                                     icon={
                                                         <svg
                                                         xmlns="http://www.w3.org/2000/svg"
-                                                        width="1em"
-                                                        height="1em"
                                                         viewBox="0 0 48 48"
+                                                        className='text-[#00A79D]'
                                                         >
                                                         <mask id="ipSApplication0">
                                                             <g fill="none" stroke="#fff" strokeLinejoin="round" strokeWidth="4">

@@ -19,6 +19,8 @@ export const router = createBrowserRouter([
         },
         {
           path: '/allItems',
+          hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
+          loader: ()=>fetch('http://localhost:5000/items'),
           element: <AllLostAndFound></AllLostAndFound>
         },
         {

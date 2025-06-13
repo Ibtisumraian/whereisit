@@ -18,9 +18,22 @@ const AddLostAndFound = () => {
         const post = Object.fromEntries(formData.entries());
         post.date = formattedDate
         post.user_name=user?.displayName
-        post.email=user?.email
+        post.email = user?.email
+        post.recovered = false
         console.log('Form submit',post);
         
+        fetch("http://localhost:5000/items", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(post)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log("response after post", data);
+            e.target.reset()
+        })
     }
     return (
         <div>

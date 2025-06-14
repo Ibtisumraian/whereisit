@@ -88,21 +88,48 @@ const AllLostAndFound = () => {
                     onClick={()=>setItems(initialItems)}
                     className='btn bg-[#00A79D] text-base text-white hover:bg-[#00A79D80]'>See All</motion.button>
                 </div>
-            <div className='w-9/12 mx-auto  grid grid-cols-3 gap-6'>
+            <div className='w-9/12 mx-auto  grid grid-cols-3 gap-8'>
 
                 {
                     items.map(item => {
-                        return <div key={item._id} className=" rounded-xl bg-gradient-to-t from-[#00A79D05] to-white overflow-hidden shadow-md border border-gray-200 p-6">
+                        return <motion.div
+                            whileHover={{
+                                scale: [null, 1.02, 1.07],
+                            transition: {
+                                duration: 0.5,
+                                times: [0, 0.6, 1],
+                                ease: ["easeInOut", "easeOut"],
+                                },
+                            }}
+                            transition={{
+                                duration: 0.3,
+                                ease: "easeOut",
+                            }}
+                            className='bg-[#00A79D] rounded-xl  drop-shadow-xl/40'>
+                            <div key={item._id} className=" rounded-xl rounded-br-full h-full bg-white  border border-gray-200 p-6">
                     <div className=''>
                         <div className="relative">
                         <img
                         src={ item.thumbnail }
                         alt="Cloudinary server down"
-                        className="w-full h-48 object-cover rounded-xl"
+                        className="w-[370px] h-48 object-cover rounded-xl"
                         />
                         <motion.span 
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 50 }}    
+                            animate={{ opacity: 1, y: [0, 5, 0], x: [0, 5, 0] }}
+                            transition={{
+                                opacity: { duration: 1 },
+                                y: {
+                                     duration: 8,
+                                     repeat: Infinity,
+                                     ease: "easeInOut"
+                                },
+                                x: {
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }
+                            }}
                         className={`absolute top-2 left-2 text-white text-xs font-semibold px-2 py-1 rounded ${item.post_type === "Lost" ? "bg-red-400" : "bg-[#00A79D]"}`}>
                         { item.post_type }
                         </motion.span>
@@ -110,17 +137,23 @@ const AllLostAndFound = () => {
 
                     <div className=" space-y-2 my-2">
                         <h2 className="text-lg font-semibold">{ item.title }</h2>
-                        <p className="text-gray-600 text-sm">{ item.description }</p>
+                        <p className="text-gray-600 text-sm max-w-[300px]">{ item.description }</p>
                         <p className="text-gray-500 text-sm flex items-center gap-2"><FaMapLocationDot className='text-[#00A79D]' /> { item.location }</p>
                         <p className="text-gray-400 text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
-                        <div className='flex flex-col justify-self-end'>
-                            <button className="mt-2 w-full  bg-[#00A79D] hover:bg-[#00A79D80] text-white text-sm font-medium py-2 px-4 rounded">
+                        <div className='flex flex-col justify-self-end drop-shadow-xl/40'>
+                        <motion.button 
+                        initial={{ opacity: 0 }}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                        whileInView={{ opacity: 1 }}
+                        className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-sm font-medium py-2 px-4 rounded">
                         View Details
-                        </button>
+                        </motion.button>
                         </div>
                     </div>
                     </div>
                 </div>
+                        </motion.div>
                     })
                 }
 

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useAuth from '../../hooks/useAuth';
 import { FaWpforms } from 'react-icons/fa6';
 import { registerLocale } from 'react-datepicker'
-import enGB from 'date-fns/locale/en-GB' // For dd/MM/yyyy format
+import enGB from 'date-fns/locale/en-GB'
 registerLocale('en-GB', enGB)
 
 const AddLostAndFound = () => {

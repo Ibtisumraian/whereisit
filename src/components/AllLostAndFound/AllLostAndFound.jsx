@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { FaMapLocationDot } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 
 const AllLostAndFound = () => {
     const data = useLoaderData()
     const [initialItems, setInitialItems] = useState([])
     const [items, setItems] = useState([])
-    
+    const navigate = useNavigate()
+
     useEffect(() => {
         setInitialItems(data)
         setItems(initialItems)
@@ -22,6 +23,11 @@ const AllLostAndFound = () => {
         fetch(`https://lost-and-found-server-mu.vercel.app/items?title=${title}`)
         .then(res => res.json())
         .then(data => setItems(data));
+    }
+
+        
+    const handleViewDetailsButton = (id) => {
+       return navigate(`/item/${id}`)
     }
     return (
         <div className='mb-32'>
@@ -142,6 +148,7 @@ const AllLostAndFound = () => {
                         <p className="text-gray-400 text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
                         <div className='flex flex-col justify-self-end drop-shadow-xl/40'>
                         <motion.button 
+                        onClick={()=>handleViewDetailsButton(item._id)}
                         initial={{ opacity: 0 }}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}

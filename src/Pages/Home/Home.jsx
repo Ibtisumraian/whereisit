@@ -4,13 +4,17 @@ import { FaCalendarDays, FaMapLocationDot } from 'react-icons/fa6';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import CommonlyLostAndFound from '../../components/CommonlyLostAndFound/CommonlyLostAndFound';
 import useAuth from '../../hooks/useAuth';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 import { MdDateRange } from 'react-icons/md';
 
 const Home = () => {
     const recentItems = useLoaderData()
     const { user } = useAuth()
+    const navigate = useNavigate()
+    const handleViewDetailsButton = (id) => {
+       return navigate(`/item/${id}`)
+    }
     console.log(user, recentItems);
     return (
         <div>
@@ -25,6 +29,7 @@ const Home = () => {
                     {
                         recentItems.map(item => {
                             return <motion.div
+                            key={item._id}
                             whileHover={{
                                 scale: [null, 1.02, 1.07],
                             transition: {
@@ -59,6 +64,7 @@ const Home = () => {
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}
                         whileInView={{ opacity: 1 }}
+                        onClick={()=>handleViewDetailsButton(item._id)}
                         className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-sm font-medium py-2 px-4 rounded">
                         View Details
                         </motion.button>

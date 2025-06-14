@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         {
             index: true,
             hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-            loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/items/recent'),
+            loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/recent'),
             Component: Home
         },
         {
@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         {
           path: '/item/:id',
           hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-          loader: ({params})=>fetch(`https://lost-and-found-server-mu.vercel.app/item/${params.id}`),
+          loader: ({params})=>fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`),
           element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>
         },
         {

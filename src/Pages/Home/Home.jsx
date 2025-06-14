@@ -15,6 +15,10 @@ const Home = () => {
     const handleViewDetailsButton = (id) => {
        return navigate(`/item/${id}`)
     }
+
+    const handleSeeAllButton = () => {
+       return navigate('/allItems')
+    }
     console.log(user, recentItems);
     return (
         <div>
@@ -76,8 +80,17 @@ const Home = () => {
                         })
                     }
 
+            </div>
+                    <div className='flex items-center justify-center py-12'>
+                    <motion.button
+                            onClick={handleSeeAllButton}
+                            initial={{ opacity: 0 }}
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.8 }}
+                            whileInView={{ opacity: 1 }}
+                            className='w-fit py-2 px-4 text-2xl fontInter bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer'>See All</motion.button>
+                    </div>
 
-                </div>
             </div>
 
             <HowItWorks></HowItWorks>

@@ -26,14 +26,21 @@ const PostDetails = () => {
 
     const handleRecoveredFormSubmit = (e) => {
         e.preventDefault()
+        if (item.recovered) {
+            alert("The Item Has Already Been Recovered")
+            return setModal(false)
+        }
         const recoveredLocation = e.target.recovered_location.value
         item.recovered = true
         const recoveredData = {
             recovered_item_data: item,
             recovered_date: splitDate,
             recoveredLocation,
-            recent_recovered_date: selectedDate
+            recent_recovered_date: selectedDate,
+            recovered_mail: user.email
         }
+
+
         console.log("Recovered Data Submitted", recoveredData);
         
         fetch("https://lost-and-found-server-mu.vercel.app/recovered", {
@@ -45,8 +52,31 @@ const PostDetails = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log("response after post", data);
-            // e.target.reset()
+            
+            // console.log("response after post", data);
+        const pId = {
+            id: item._id,
+        }
+            if (data.insertedId) {
+                fetch('https://lost-and-found-server-mu.vercel.app/items', {
+                method: 'PATCH',
+                headers: {
+                    "content-type":"application/json"
+                },
+                body: JSON.stringify(pId)
+        })
+        .then(res=>res.json())
+        .then((data)=>{
+            console.log(data);
+            if (data.modifiedCount) {
+                setModal(false)
+                e.target.reset()
+            }
+            
+        })
+            }
+
+            
         })
         
     }
@@ -136,16 +166,16 @@ const PostDetails = () => {
         {modal && <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50 ">
           <div className="  w-full max-h-screen ">
            <div>
-            <div className={`w-fit   mx-auto rounded-2xl my-12 p-6 sm:p-12 `}>
+            <div className={`w-fit  mx-auto rounded-2xl p-6  `}>
                 <div className='text-center py-8'>
                     <h1 className='text-3xl sm:text-5xl font-semibold text-white'>
-                        {item?.post_type === "Lost" ? <motion.button
+                        {/* {item?.post_type === "Lost" ? <motion.button
 
-                                    className='w-fit py-2 px-4  text-white hover:bg-[#00A79D80] rounded-lg cursor-pointer'>Found This !</motion.button> : <motion.button
-                                        className='w-fit py-2 px-4  text-white hover:bg-[#00A79D80] rounded-lg cursor-pointer'>This is Mine !</motion.button>}
+                                    className='w-fit py-2 px-4  text-gray-600  rounded-lg cursor-pointer'>Found This !</motion.button> : <motion.button
+                                        className='w-fit py-2 px-4  text-gray-600 rounded-lg cursor-pointer'>This is Mine !</motion.button>} */}
                     </h1>
                 </div>
-                    <div className=' bg-white p-4 rounded-2xl drop-shadow-xl/40'>
+                    <div className=' bg-white p-8 rounded-2xl drop-shadow-xl/40'>
                  <form onSubmit={handleRecoveredFormSubmit} >
                         <div>
                             <fieldset className="fieldset">
@@ -191,7 +221,7 @@ const PostDetails = () => {
                                     />
                                     <motion.div 
                                                 initial={{ opacity: 0, y: 50 }}    
-                                                animate={{ opacity: 1, y: [0, 10, 0], x: [0, -15, 0] }}
+                                                animate={{ opacity: 1, y: [0, 10, 0], x: [0, 15, 0] }}
                                                 transition={{
                                                     opacity: { duration: 1 },
                                                     y: {

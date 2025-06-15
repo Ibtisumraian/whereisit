@@ -8,6 +8,7 @@ import AddLostAndFound from "../components/AddLostAndFound/AddLostAndFound";
 import PrivateRouteTwo from "../components/PrivateRouteTwo/PrivateRouteTwo";
 import AllLostAndFound from "../components/AllLostAndFound/AllLostAndFound";
 import PostDetails from "../components/PostDetails/PostDetails";
+import AllRecovered from "../components/AllRecovered/AllRecovered";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ export const router = createBrowserRouter([
           hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
           loader: ({params})=>fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`),
           element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>
+        },
+        {
+          path: '/allRecovered',
+          // hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
+          // loader: ({ params })=>fetch(`http://localhost:5000/recovered/${params.email}`),
+          element: <PrivateRoute><AllRecovered></AllRecovered></PrivateRoute>
         },
         {
           path: '/Signin',

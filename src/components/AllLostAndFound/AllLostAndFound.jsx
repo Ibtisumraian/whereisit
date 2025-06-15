@@ -99,6 +99,7 @@ const AllLostAndFound = () => {
                 {
                     items.map(item => {
                         return <motion.div
+                            key={item._id}
                             whileHover={{
                                 scale: [null, 1.02, 1.07],
                             transition: {
@@ -146,6 +147,7 @@ const AllLostAndFound = () => {
                         <p className="text-gray-600 text-sm max-w-[300px]">{ item.description }</p>
                         <p className="text-gray-500 text-sm flex items-center gap-2"><FaMapLocationDot className='text-[#00A79D]' /> { item.location }</p>
                         <p className="text-gray-400 text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
+                        {/* { item.recovered && <h1>Recovered</h1>} */}
                         <div className='flex flex-col justify-self-end drop-shadow-xl/40'>
                         <motion.button 
                         onClick={()=>handleViewDetailsButton(item._id)}

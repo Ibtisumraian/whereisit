@@ -122,7 +122,7 @@ const Navbar = () => {
                         
                         <div className=" flex flex-col gap-3 text-md  my-3">
                             <NavLink to='/addItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500" >Add Lost & Found Item </NavLink>
-                            <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">All Recovered Items</NavLink>
+                            <NavLink to={`/allRecovered`} className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">All Recovered Items</NavLink>
                             <NavLink to='/dd' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">Manage My Items</NavLink>
                         </div>
                         

@@ -27,6 +27,11 @@ const AddLostAndFound = () => {
         post.email = user?.email
         post.recovered = false
         post.recent_date = selectedDate
+        const title = post.title
+        const location = post.location
+        const searchInput = title + " " + location
+        // const searchInput = `${title} ${location}`;
+        post.Search_input=searchInput
         console.log('Form submit',post);
         
         fetch("https://lost-and-found-server-mu.vercel.app/items", {
@@ -34,7 +39,8 @@ const AddLostAndFound = () => {
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(post)
+            body: JSON.stringify(post),
+            credentials: 'include' 
         })
         .then(res=>res.json())
         .then(data=>{

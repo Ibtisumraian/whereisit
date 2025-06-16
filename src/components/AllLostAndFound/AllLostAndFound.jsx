@@ -20,7 +20,7 @@ const AllLostAndFound = () => {
         e.preventDefault()
         const title = e.target.search.value
         console.log(title);
-        fetch(`https://lost-and-found-server-mu.vercel.app/items?title=${title}`)
+        fetch(`https://lost-and-found-server-mu.vercel.app/items?title=${title}`, { credentials: 'include' })
         .then(res => res.json())
         .then(data => setItems(data));
     }
@@ -47,7 +47,7 @@ const AllLostAndFound = () => {
                         <input
                             name="search"
                             type="text"
-                            placeholder="Search by title..."
+                            placeholder="Search by title or location..."
                             className="w-full bg-[#00A79D40] rounded-full py-3.5 pl-8 pr-20 text-gray-800 text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00A79D] transition-all duration-300 shadow-[inset_10px_10px_20px_rgba(105,105,105,0.3)]"
                         />
                         <motion.button

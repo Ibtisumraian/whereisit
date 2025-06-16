@@ -17,41 +17,50 @@ export const router = createBrowserRouter([
     children:[
         {
             index: true,
-            hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-            loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/recent'),
+            hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+              <span className="loading loading-bars loading-xl"></span>
+            </div>,
+            loader: () => fetch('https://lost-and-found-server-mu.vercel.app/recent', {
+              credentials: 'include'
+            }),
             Component: Home
         },
         {
           path: '/allItems',
-          hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-          loader: ()=>fetch('https://lost-and-found-server-mu.vercel.app/items'),
-          element: <AllLostAndFound></AllLostAndFound>
-        },
-        {
-          path: '/addItems',
-          element: <PrivateRoute><AddLostAndFound></AddLostAndFound></PrivateRoute>
+          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>,
+          loader: () => fetch('https://lost-and-found-server-mu.vercel.app/items', {
+            credentials: 'include'
+          }),
+          element: <AllLostAndFound />
         },
         {
           path: '/item/:id',
-          hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-          loader: ({params})=>fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`),
-          element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>
+          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>,
+          loader: ({ params }) => fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`, {
+            credentials: 'include'
+          }),
+          element: <PrivateRoute><PostDetails /></PrivateRoute>
         },
         {
           path: '/allRecovered',
-          // hydrateFallbackElement:<div className='  w-[90%] py-40 mx-auto flex justify-center items-center'><span className="loading loading-bars loading-xl"></span></div>,
-          // loader: ({ params })=>fetch(`http://localhost:5000/recovered/${params.email}`),
-          element: <PrivateRoute><AllRecovered></AllRecovered></PrivateRoute>
+          element: <PrivateRoute><AllRecovered /></PrivateRoute>
         },
         {
           path: '/Signin',
-          element: <PrivateRouteTwo><SignIn></SignIn></PrivateRouteTwo>
+          element: <PrivateRouteTwo><SignIn /></PrivateRouteTwo>
         },
         {
           path: '/Signup',
-          element: <PrivateRouteTwo><SignUp></SignUp></PrivateRouteTwo>
+          element: <PrivateRouteTwo><SignUp /></PrivateRouteTwo>
         },
-        
+        {
+          path: '/addItems',
+          element: <PrivateRoute><AddLostAndFound /></PrivateRoute>
+        },
     ]
   },
 ]);

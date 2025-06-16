@@ -17,7 +17,7 @@ const AllRecovered = () => {
 
 
     useEffect(() => {
-        fetch(`https://lost-and-found-server-mu.vercel.app/recovered/${user.email}`)
+        fetch(`https://lost-and-found-server-mu.vercel.app/recovered/${user.email}`, { credentials: 'include' })
         .then(res=>res.json()
             .then(data =>
                 setItems(data),

@@ -50,7 +50,7 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <div className="flex flex-col items-center gap-3 text-base font-semibold">
+        <div className="flex flex-col gap-3 text-md sm:text-base font-semibold">
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/allItems'>Lost & Found Items</NavLink>
           
@@ -71,14 +71,14 @@ const Navbar = () => {
     <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Home</NavLink>
     <NavLink to='/allItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Lost & Found Items</NavLink>
   </motion.div>
-  <div className="navbar-end flex gap-7">
+  <div className="navbar-end flex gap-3 sm:gap-7">
     <div className=" ">
     <ul className="menu menu-horizontal px-1">
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 2, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-      className="flex items-center gap-7 text-base font-semibold">
+      className="flex items-center gap-3 sm:gap-7 text-md sm:text-base font-semibold">
             
             {
                   !user ? <NavLink to='/Signin' className="hover:bg-[#00A79D10] py-1 px-3  text-gray-500 rounded-xl">Sign In</NavLink> : <button onClick={handleSignOut} className="cursor-pointer hover:bg-[#00A79D10] py-2 px-3  text-gray-500 rounded-xl"> Sign Out</button>
@@ -97,7 +97,7 @@ const Navbar = () => {
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV ">
-                            <div className="w-12 rounded-full border-[3px] border-[#00A79D]">
+                            <div className="w-8 sm:w-12 rounded-full border-[3px] border-[#00A79D]">
                               <a data-tooltip-id="my-tooltip" data-tooltip-content={user ? user.displayName : "User Name"}>
                                   <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
                               </a>

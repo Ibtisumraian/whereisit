@@ -35,13 +35,13 @@ const Banner = () => {
     {/* <img
       src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
       className="w-full" /> */}
-      <div className='flex items-center justify-evenly gap-10 w-full h-full   '>
-        <div className='flex flex-col gap-6'>
-          <Fade direction="left" duration={500}>
-            <h1 className='text-5xl text-white fontInter font-bold'>Lost Something? <br />
+      <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly xl:gap-10 w-full h-full   '>
+        <div className='flex flex-col gap-6 text-center lg:text-start'>
+          <Fade direction="top" duration={500}>
+            <h1 className='text-2xl sm:text-3xl 2xl:text-5xl text-white fontInter font-bold'>Lost Something? <br />
             <Typewriter
                         words={[`Let Us Help You Find It!`]}
-                        loop={Infinity} 
+                        loop={1} 
                         cursor
                         cursorStyle='|'
                         typeSpeed={90}
@@ -50,16 +50,20 @@ const Banner = () => {
                         />
             </h1>      
                         </Fade>
-          <Fade direction="left" duration={700}>
-            <p className='fontInter text-gray-800'>Our Lost & Found system makes it easy to report missing items and check for items others have found. <br /> We're here to reunite you with your belongings.</p>
+          <Fade direction="top" duration={700}>
+            <p className='fontInter text-sm sm:text-base text-gray-600'>Our Lost & Found system makes it easy to report missing items and check for items others have found. <br /> We're here to reunite you with your belongings.</p>
             </Fade>
-          <Fade direction="left" duration={800}>
-            <button className='btn w-fit'>Ask Our AI</button>
+          <Fade direction="top" duration={800}>
+            <div className=''>
+              <div className='block sm:hidden'></div>
+              <button className='btn w-fit'>Ask Our AI</button>
+            </div>
             </Fade>
         </div>
         <motion.div
+        className='hidden sm:block'
                     initial={{ opacity: 0, y: 50 }}    
-                    animate={{ opacity: 1, y: [0, 40, 0], x: [0, 40, 0] }}
+                    animate={{ opacity: 1, y: [0, 10, 0], x: [0, -30, 0] }}
                     transition={{
                         opacity: { duration: 1 },
                         y: {
@@ -74,7 +78,7 @@ const Banner = () => {
                         }
                         }}
         >
-          <Lottie animationData={sliderOne} loop={true} className='w-[500px]'></Lottie>
+          <Lottie animationData={sliderOne} loop={true} className='w-[300px] sm:w-[400px] 2xl:w-[500px]'></Lottie>
           
         </motion.div>
       </div>
@@ -84,13 +88,13 @@ const Banner = () => {
     {/* <img
       src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
       className="w-full" /> */}
-      <div className='flex items-center justify-center w-full h-full   '>
-        <div className='flex flex-col gap-6'>
-          <Fade direction="left" duration={700}>
-            <h1 className='text-5xl text-white fontInter font-bold'>Your Lost Device <br /> 
+      <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly w-full h-full   '>
+        <div className='flex flex-col gap-6 text-center lg:text-start'>
+          <Fade direction="top" duration={700}>
+            <h1 className='text-2xl sm:text-3xl 2xl:text-5xl text-white fontInter font-bold'>Your Lost Device <br /> 
                         <Typewriter
                         words={[`Deserves a Second Chance.`]}
-                        loop={Infinity} 
+                        loop={1} 
                         cursor
                         cursorStyle='|'
                         typeSpeed={90}
@@ -99,15 +103,19 @@ const Banner = () => {
                         />
             </h1>
           </Fade>
-            <Fade direction="left" duration={800}>
-            <p className='fontInter text-gray-800'>Every day, valuable electronics like phones, laptops, and gadgets are lost—and often <br /> found by kind strangers. Use our platform to report lost items or check our database to find yours.</p>
+            <Fade direction="top" duration={800}>
+            <p className='fontInter text-sm sm:text-base text-gray-600'>Every day, valuable electronics like phones, laptops, and gadgets are lost—and often <br /> found by kind strangers. Use our platform to report lost items or check our database to find yours.</p>
             </Fade>
-              <Fade direction="left" duration={900}>
-            <button className='btn w-fit'>Ask Our AI</button>
-              </Fade>
+              <Fade direction="top" duration={800}>
+            <div className=''>
+              <div className='block sm:hidden'></div>
+              <button className='btn w-fit'>Ask Our AI</button>
+            </div>
+            </Fade>
                 
         </div>
         <motion.div
+        className='hidden sm:block'
                     initial={{ opacity: 0, y: 50 }}    
                     animate={{ opacity: 1, y: [0, 40, 0], x: [0, 40, 0] }}
                     transition={{
@@ -124,7 +132,7 @@ const Banner = () => {
                         }
                         }} 
         >
-          <Lottie animationData={sliderTwo} loop={true} className='w-[500px]'></Lottie>
+          <Lottie animationData={sliderTwo} loop={true} className='w-[300px] sm:w-[400px] 2xl:w-[500px]'></Lottie>
         </motion.div>  
       </div>
   </SwiperSlide>
@@ -133,10 +141,37 @@ const Banner = () => {
     {/* <img
       src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
       className="w-full" /> */}
-      <div className='flex items-center justify-evenly gap-10 w-full h-full   '>
-        <motion.div
+      <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly xl:gap-10 w-full h-full   '>
+
+        <div className='flex flex-col gap-6 text-center lg:text-start'>
+          <Fade direction="top" duration={700}>
+            <h1 className='text-2xl sm:text-3xl 2xl:text-5xl text-white fontInter font-bold'>Lost a Beloved Pet? <br /> 
+                        <Typewriter
+                        words={[`Found Someone's Best Friend?`]}
+                        loop={1} 
+                        cursor
+                        cursorStyle='|'
+                        typeSpeed={90}
+                        deleteSpeed={80}
+                        delaySpeed={1500}
+                        />
+            </h1>
+          </Fade>
+            <Fade direction="top" duration={600}>
+            <p className='fontInter text-sm sm:text-base text-gray-600'>We're here to reconnect hearts and heal families. Whether you’ve lost a pet or found someone’s furry friend, <br /> share the details and help bring comfort, hope, and joy back home.</p>
+            </Fade>
+              <Fade direction="top" duration={800}>
+            <div className=''>
+              <div className='block sm:hidden'></div>
+              <button className='btn w-fit'>Ask Our AI</button>
+            </div>
+            </Fade>
+                
+              </div>
+              <motion.div
+                className='hidden sm:block'
                     initial={{ opacity: 0, y: 50 }}    
-                    animate={{ opacity: 1, y: [0, 30, 0], x: [0, 50, 0] }}
+                    animate={{ opacity: 1, y: [0, 30, 0], x: [0, -50, 0] }}
                     transition={{
                         opacity: { duration: 1 },
                         y: {
@@ -151,30 +186,8 @@ const Banner = () => {
                         }
                         }} 
         >
-          <Lottie animationData={sliderThree} loop={true} className='w-[500px]'></Lottie>        
+          <Lottie animationData={sliderThree} loop={true} className='w-[300px] sm:w-[400px] 2xl:w-[500px]'></Lottie>        
         </motion.div>
-        <div className='flex flex-col gap-6'>
-          <Fade direction="right" duration={700}>
-            <h1 className='text-5xl text-white fontInter font-bold'>Lost a Beloved Pet? <br /> 
-                        <Typewriter
-                        words={[`Found Someone's Best Friend?`]}
-                        loop={Infinity} 
-                        cursor
-                        cursorStyle='|'
-                        typeSpeed={90}
-                        deleteSpeed={80}
-                        delaySpeed={1500}
-                        />
-            </h1>
-          </Fade>
-            <Fade direction="right" duration={600}>
-            <p className='fontInter text-gray-800'>We're here to reconnect hearts and heal families. Whether you’ve lost a pet or found someone’s furry friend, <br /> share the details and help bring comfort, hope, and joy back home.</p>
-            </Fade>
-              <Fade direction="right" duration={500}>
-            <button className='btn w-fit'>Ask Our AI</button>
-              </Fade>
-                
-        </div>
       </div>
   </SwiperSlide>
   

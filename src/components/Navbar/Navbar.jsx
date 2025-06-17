@@ -114,10 +114,10 @@ const Navbar = () => {
                             {/* <div className="hide absolute text-sm -top-5 -left-4">{user ? userName : ""}</div> */}
                         </div>
                     </div>
-                      <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  shadow-sm">
-                          <div className="border-b flex flex-col gap-1 text-md pb-2">
-                              <h1 className="font-bold">{user ? user?.displayName : "User Name"}</h1>
-                              <p>{user ? user?.email : "User Email"}</p>
+                      <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  border-2 border-[#00A79D]  shadow-sm">
+                          <div className="border-b-2 border-b-[#00A79D] flex flex-col gap-1 text-md pb-2">
+                              <h1 className="font-bold text-[#00A79D]">{user ? user?.displayName : "User Name"}</h1>
+                              <p className="text-gray-500">{user ? user?.email : "User Email"}</p>
                           </div>
                         
                         <div className=" flex flex-col gap-3 text-md  my-3">

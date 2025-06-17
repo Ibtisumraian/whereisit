@@ -38,7 +38,7 @@ const AllRecovered = () => {
         <div>
             <div className='w-9/12 2xl:w-8/12 mx-auto mb-32'>
                 <div className='text-center py-4 mt-20 mb-10 '>
-                    {!loading && items?.length > 0 ? <h1 className='text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
+                    {!loading && items?.length > 0 ? <h1 className='text-3xl sm:text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
                 </div>
 
                 {!loading ? <>{items?.length > 0 ?
@@ -157,13 +157,15 @@ const AllRecovered = () => {
                     
                     :
                     
-                    <div> <div className='w-fit mx-auto drop-shadow-xl/40 text-center bg-gradient-to-t from-[#00A79D] to-[#00A79D20] rounded-4xl p-8'>
-                    <div className='text-9xl text-gray-600 flex justify-center'>
+                    <div> <div className='w-fit mx-auto drop-shadow-xl/40 text-center bg-gradient-to-t from-[#00A79D] to-[#00A79D20] rounded-4xl p-3 sm:p-8'>
+                    <div className='text-7xl sm:text-9xl text-gray-600 flex justify-center'>
                         <PiBatteryWarningFill className='drop-shadow-xl/30' />
                     </div>
                     <div className='space-y-3'>
-                        <h1 className='text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
-                        <h1 className='text-3xl font-bold fontInter text-gray-600'>None of your posted items has been <br /> recovered yet !</h1>
+                        <h1 className='text-lg sm:text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
+                        <h1 className='text-xl sm:text-3xl font-bold fontInter text-gray-600'>None of your posted items has been <br /> recovered !</h1>
+                        <h1 className='text-lg sm:text-2xl text-gray-600 font-semibold'>or</h1>
+                        <h1 className='text-lg sm:text-2xl text-gray-600 font-semibold'>You have not posted any items yet !</h1>
                     </div>
                 </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center text-center gap-6'>
                         <motion.div

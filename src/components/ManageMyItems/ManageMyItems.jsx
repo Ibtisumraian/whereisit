@@ -78,54 +78,60 @@ const ManageMyItems = () => {
                     {!loading && items?.length > 0 ? <h1 className='text-2xl sm:text-4xl font-bold fontInter text-gray-600'>Manage My Items</h1> : ""}
                 </div>
             <div className='w-7/12 mx-auto mb-32'>
-                <motion.h1
+                
+                
+                {!loading ? <>{items?.length > 0 ?
+                    <div>
+                        <motion.h1
                     animate={{
                         color: ['#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350'],
                         transition: {duration: 4, repeat: Infinity}
                     }}
-                    className='block lg:hidden font-semibold py-2'>Scroll Right to see</motion.h1>
-                
-                {!loading ? <>{items?.length > 0 ? <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-                    <table className="table rounded-2xl border-2 border-[#00A79D]">
-                        {/* head */}
-                        <thead className='bg-[#00A79D] text-white text-lg'>
-                        <tr className=''>
-                            <th>Image</th>
-                            <th>Post Type</th>
-                            <th>Posted By</th>
-                            <th>Status</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {/* row 1 */}
-                        
-                            {/* {items ? "" : <> */}
-                                {
-                                items?.map(item => {
-                                    return <tr key={ item._id} className='border border-[#00A79D]'>  
-                                        <td><img className='w-[80px] h-[70px] object-cover rounded-xl' src={ item?.thumbnail} alt="" /></td>
-                                        <td>{ item?.post_type }</td>
-                                        <td>{item?.user_name}</td>
-                                        {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
-                                        <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2' /></td>
-                                        <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2' /></td>
-                                    </tr>
-                                })
-                            }
-                            {/* </>} */}
+                            className='block lg:hidden font-semibold py-2'>Scroll Right to see</motion.h1>
+                        <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">                   
+                        <table className="table rounded-2xl border-2 border-[#00A79D]">
+                            {/* head */}
+                            <thead className='bg-[#00A79D] text-white text-lg'>
+                            <tr className=''>
+                                <th>Image</th>
+                                <th>Post Type</th>
+                                <th>Posted By</th>
+                                <th>Status</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {/* row 1 */}
                             
+                                {/* {items ? "" : <> */}
+                                    {
+                                    items?.map(item => {
+                                        return <tr key={ item._id} className='border border-[#00A79D]'>  
+                                            <td><img className='w-[80px] h-[70px] object-cover rounded-xl' src={ item?.thumbnail} alt="" /></td>
+                                            <td>{ item?.post_type }</td>
+                                            <td>{item?.user_name}</td>
+                                            {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
+                                            <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2' /></td>
+                                            <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2' /></td>
+                                        </tr>
+                                    })
+                                }
+                                {/* </>} */}
+                                
 
-                        </tbody>
-                    </table>
-                </div> : <div> <div className='w-fit mx-auto drop-shadow-xl/40 text-center bg-gradient-to-t from-[#00A79D] to-[#00A79D20] rounded-4xl p-8'>
-                    <div className='text-9xl text-gray-600 flex justify-center'>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    :
+                    <div> <div className='w-fit mx-auto drop-shadow-xl/40 text-center bg-gradient-to-t from-[#00A79D] to-[#00A79D20] rounded-2xl sm:rounded-4xl p-3 sm:p-8'>
+                    <div className='text-6xl sm:text-8xl md:text-9xl text-gray-600 flex justify-center'>
                         <PiBatteryWarningFill className='drop-shadow-xl/30' />
                     </div>
                     <div className='space-y-3'>
-                        <h1 className='text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
-                        <h1 className='text-3xl font-bold fontInter text-gray-600'>None of your posted items has been <br /> recovered yet !</h1>
+                        <h1 className=' md:text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
+                        <h1 className=' md:text-3xl font-bold fontInter text-gray-600'>Looks like you have not posted any <br /> items yet !</h1>
                     </div>
                 </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center text-center gap-6'>
                         <motion.div

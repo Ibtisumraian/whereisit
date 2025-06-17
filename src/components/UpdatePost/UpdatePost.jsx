@@ -56,44 +56,28 @@ const UpdatePost = () => {
         })
     }
     return (
-        <div>
+        <div className='p-3'>
             <div className='text-center  text-gray-500 mb-16'>
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 2, ease: 'easeOut' }}
-                    className='text-4xl font-bold fontInter'>Update Lost and Found Items</motion.h1>
+                    className='text-3xl sm:text-4xl font-bold fontInter'>Update Lost and Found Items</motion.h1>
             </div>
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 2, y: 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className='w-fit mx-auto bg-[#00A79D99] p-10 drop-shadow-xl/800 rounded-2xl mb-16'>
+                className='w-fit mx-auto bg-[#00A79D99] p-4 sm:p-10 drop-shadow-xl/800 rounded-2xl mb-16'>
                 
                 <div className=' flex justify-center items-center'>
-                    {/* <motion.div
-                        animate={{
-                            
-                            y: [0, -5, 5, -5, 5, 0]
-                        }} 
-                        transition={{
-                        repeat: Infinity, 
-                        repeatDelay: 2,   
-                        duration: 1     
-                        }}
-                        className='drop-shadow-xl/80'>
-                        <img className='h-[600px] w-full ' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749632658/undraw_new-notifications_wvqc-removebg-preview_agginr.png" alt="" />
-                    </motion.div> */}
+
                     <div
                         className="  h-[775px]"
-                        // style={{
-                        //     backgroundImage:
-                        //     "url(https://res.cloudinary.com/dd4np04jl/image/upload/v1749620769/ChatGPT_Image_Jun_10_2025_12_37_25_PM_y7bbgk.png)",
-                        // }}
                         >
                         <div className=""></div>
                         <div className="  text-center">
-                            <div className="max-w-md">
+                            <div className="">
                                 
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
@@ -104,7 +88,7 @@ const UpdatePost = () => {
                                         {/* select type */}
                                         <div className='flex items-center justify-between'>
                                             <div>
-                                                <fieldset className="fieldset  w-[250px]">
+                                                <fieldset className="fieldset  w-[200px] sm:w-[290px] ">
                                                     <legend className="fieldset-legend text-base">Post Type</legend>
                                                     <select name='post_type' defaultValue={item.post_type} className="select bg-[#00A79D] text-white rounded-2xl">
                                                         <option disabled={true}>{item.post_type}</option>
@@ -129,7 +113,7 @@ const UpdatePost = () => {
                                                         ease: "easeInOut"
                                                     }
                                                     }}
-                                                className='text-8xl text-[#00A79D] drop-shadow-xl/40'>
+                                                className='hidden sm:block text-8xl text-[#00A79D] drop-shadow-xl/40'>
                                                 <FaWpforms />
                                             </motion.div>
                                         </div>
@@ -237,7 +221,7 @@ const UpdatePost = () => {
                                         {/* Contact info */}
                                         <div >
                                             <h1 className='text-base font-semibold mb-2'>Contact</h1>
-                                            <div className='py-2 px-4 flex items-center justify-between bg-white border border-gray-300 rounded-2xl'>
+                                            <div className='py-2 px-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:flex sm:justify-between bg-white border border-gray-300 rounded-2xl'>
                                                 <div>
                                                     <h1 className='font-semibold'>Name</h1>
                                                     <p>{ user?.displayName }</p>

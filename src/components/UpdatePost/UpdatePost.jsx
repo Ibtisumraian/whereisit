@@ -90,7 +90,7 @@ const UpdatePost = () => {
                                             <div>
                                                 <fieldset className="fieldset  w-[200px] sm:w-[290px] ">
                                                     <legend className="fieldset-legend text-base">Post Type</legend>
-                                                    <select name='post_type' defaultValue={item.post_type} className="select bg-[#00A79D] text-white rounded-2xl">
+                                                    <select required name='post_type' defaultValue={item.post_type} className="select bg-[#00A79D] text-white rounded-2xl">
                                                         <option disabled={true}>{item.post_type}</option>
                                                         <option className='hover:bg-[#00A79D]'>Lost</option>                                           
                                                         <option className='hover:bg-[#00A79D]'>Found</option>                                           
@@ -149,21 +149,21 @@ const UpdatePost = () => {
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Title</legend>
-                                                <input name='title' defaultValue={item.title} type="text" className="input rounded-2xl w-full" placeholder="TItle" />
+                                                <input required name='title' defaultValue={item.title} type="text" className="input rounded-2xl w-full" placeholder="TItle" />
                                             </fieldset>
                                         </div>
                                         {/* Description */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Description</legend>
-                                                <textarea name='description' defaultValue={item.description} className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
+                                                <textarea required name='description' defaultValue={item.description} className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
                                             </fieldset>
                                         </div>
                                         {/* Category */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Category</legend>
-                                                <select name='category' defaultValue={item.category} className="select bg-[#00A79D] text-white rounded-2xl w-full">
+                                                <select required name='category' defaultValue={item.category} className="select bg-[#00A79D] text-white rounded-2xl w-full">
                                                     <option disabled={true}>{item.category}</option>
                                                     <option className='hover:bg-[#00A79D]'>Pets</option>                                           
                                                     <option className='hover:bg-[#00A79D]'>Documents</option>                                           
@@ -179,7 +179,7 @@ const UpdatePost = () => {
                                             <div>
                                                 <fieldset className="fieldset">
                                                     <legend className="fieldset-legend text-base">Location</legend>
-                                                    <input name='location' defaultValue={item.location} type="text" className="input rounded-2xl" placeholder="Location" />
+                                                    <input required name='location' defaultValue={item.location} type="text" className="input rounded-2xl" placeholder="Location" />
                                                 </fieldset>
                                             </div>
                                             <div>

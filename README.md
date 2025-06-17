@@ -2,7 +2,7 @@
 
 A modern full-stack web application to help people post and find lost or found items. This is the client-side repository built using React and TailwindCSS, designed with responsiveness and user experience in mind.
 
-🔗 **Live Site:** [https://whereisit-client.netlify.app](https://whereisit-app.web.app/)  
+🔗 **Live Site:** [https://whereisit-app.web.app/](https://whereisit-app.web.app/)  
 📦 **Server Repo:** [GitHub - Server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Ibtisumraian)  
 💻 **Client Repo:** [GitHub - Client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-Ibtisumraian)
 
@@ -50,17 +50,6 @@ This project is developed as part of **Assignment 11** for showcasing full-stack
 
 ---
 
-├── public/               # Static assets
-├── src/
-│   ├── assets/           # Icons, Lottie files
-│   ├── components/       # UI components, context
-│   ├── pages/            # Home and Root
-│   ├── routes/           # Route definitions
-│   ├── hooks/            # Custom React hooks
-│   └── main.jsx          # 
-
-
----
 
 ## 🧰 NPM Packages Used
 

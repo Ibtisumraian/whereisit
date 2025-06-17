@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import { FaWpforms } from 'react-icons/fa6';
 import { registerLocale } from 'react-datepicker'
 import enGB from 'date-fns/locale/en-GB'
+import Swal from 'sweetalert2';
 registerLocale('en-GB', enGB)
 
 const AddLostAndFound = () => {
@@ -49,6 +50,22 @@ const AddLostAndFound = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log("response after post", data);
+            if (data.insertedId) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    confirmButtonColor: "#00A79D",
+                    title: "Oops...",
+                    text: "Something went wrong, try again!",
+                });
+            }
             e.target.reset()
         })
     }
@@ -83,10 +100,6 @@ const AddLostAndFound = () => {
                     </motion.div>
                     <div
                         className="  h-[775px]"
-                        // style={{
-                        //     backgroundImage:
-                        //     "url(https://res.cloudinary.com/dd4np04jl/image/upload/v1749620769/ChatGPT_Image_Jun_10_2025_12_37_25_PM_y7bbgk.png)",
-                        // }}
                         >
                         <div className=""></div>
                         <div className="  text-center">
@@ -103,7 +116,7 @@ const AddLostAndFound = () => {
                                             <div>
                                                 <fieldset className="fieldset w-[200px] sm:w-[250px] lg:w-[190px] xl:w-[250px]">
                                                     <legend className="fieldset-legend text-base">Post Type</legend>
-                                                    <select name='post_type' defaultValue="Post Type" className="select bg-[#00A79D] text-white rounded-2xl">
+                                                    <select required name='post_type' defaultValue="Post Type" className="select bg-[#00A79D] text-white rounded-2xl">
                                                         <option disabled={true}>Post Type</option>
                                                         <option className='hover:bg-[#00A79D]'>Lost</option>                                           
                                                         <option className='hover:bg-[#00A79D]'>Found</option>                                           
@@ -161,21 +174,21 @@ const AddLostAndFound = () => {
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Title</legend>
-                                                <input name='title' type="text" className="input rounded-2xl w-full" placeholder="TItle" />
+                                                <input required name='title' type="text" className="input rounded-2xl w-full" placeholder="TItle" />
                                             </fieldset>
                                         </div>
                                         {/* Description */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Description</legend>
-                                                <textarea name='description' className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
+                                                <textarea required name='description' className="textarea h-24 rounded-2xl w-full" placeholder="Description"></textarea>                                                
                                             </fieldset>
                                         </div>
                                         {/* Category */}
                                         <div>
                                             <fieldset className="fieldset">
                                                 <legend className="fieldset-legend text-base">Category</legend>
-                                                <select name='category' defaultValue="Select Category" className="select bg-[#00A79D] text-white rounded-2xl w-full">
+                                                <select required name='category' defaultValue="Select Category" className="select bg-[#00A79D] text-white rounded-2xl w-full">
                                                     <option disabled={true}>Select Category</option>
                                                     <option className='hover:bg-[#00A79D]'>Pets</option>                                           
                                                     <option className='hover:bg-[#00A79D]'>Documents</option>                                           
@@ -191,7 +204,7 @@ const AddLostAndFound = () => {
                                             <div>
                                                 <fieldset className="fieldset">
                                                     <legend className="fieldset-legend text-base">Location</legend>
-                                                    <input name='location' type="text" className="input rounded-2xl" placeholder="Location" />
+                                                    <input required name='location' type="text" className="input rounded-2xl" placeholder="Location" />
                                                 </fieldset>
                                             </div>
                                             <div>

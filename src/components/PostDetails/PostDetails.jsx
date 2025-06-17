@@ -9,6 +9,7 @@ import { registerLocale } from 'react-datepicker'
 import enGB from 'date-fns/locale/en-GB'
 import useAuth from '../../hooks/useAuth';
 import { SiAlchemy } from "react-icons/si";
+import Swal from 'sweetalert2';
 registerLocale('en-GB', enGB)
 
 
@@ -31,7 +32,11 @@ const PostDetails = () => {
     const handleRecoveredFormSubmit = (e) => {
         e.preventDefault()
         if (item.recovered) {
-            alert("The Item Has Already Been Recovered")
+            Swal.fire({
+                icon: "error",
+                confirmButtonColor: "#00A79D",
+                text: "This has already been recovered!",
+            });
             return setModal(false)
         }
         const recoveredLocation = e.target.recovered_location.value
@@ -46,42 +51,89 @@ const PostDetails = () => {
 
 
         console.log("Recovered Data Submitted", recoveredData);
-        
-        fetch("https://lost-and-found-server-mu.vercel.app/recovered", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(recoveredData)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            
-            // console.log("response after post", data);
         const pId = {
             id: item._id,
         }
-            if (data.insertedId) {
-                fetch('https://lost-and-found-server-mu.vercel.app/items', {
+        fetch('https://lost-and-found-server-mu.vercel.app/items', {
                 method: 'PATCH',
                 headers: {
                     "content-type":"application/json"
                 },
-                body: JSON.stringify(pId)
+                body: JSON.stringify(pId),
+                credentials: 'include'
         })
         .then(res=>res.json())
         .then((data)=>{
             console.log(data);
             if (data.modifiedCount) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Recovered Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                fetch("https://lost-and-found-server-mu.vercel.app/recovered", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(recoveredData)
+                }).then(res => res.json())
+                    .then(data => {
+                    console.log('data after post', data);
+                    
+                })
+                    
                 setModal(false)
                 e.target.reset()
             }
             
         })
-            }
+
+        // fetch("https://lost-and-found-server-mu.vercel.app/recovered", {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(recoveredData)
+        // })
+        // .then(res=>res.json())
+        // .then(data=>{
+            
+        //     // console.log("response after post", data);
+        // const pId = {
+        //     id: item._id,
+        // }
+        //     if (data.insertedId) {
+        //         fetch('https://lost-and-found-server-mu.vercel.app/items', {
+        //         method: 'PATCH',
+        //         headers: {
+        //             "content-type":"application/json"
+        //         },
+        //         body: JSON.stringify(pId)
+        // })
+        // .then(res=>res.json())
+        // .then((data)=>{
+        //     console.log(data);
+        //     if (data.modifiedCount) {
+        //         Swal.fire({
+        //             position: "top-end",
+        //             icon: "success",
+        //             title: "Recovered Successfully",
+        //             showConfirmButton: false,
+        //             timer: 1500
+        //         });
+        //         setModal(false)
+        //         e.target.reset()
+        //     }
+            
+        // })
+        //     }
 
             
-        })
+        // })
         
     }
     

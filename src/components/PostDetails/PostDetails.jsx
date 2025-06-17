@@ -87,7 +87,7 @@ const PostDetails = () => {
     
     return (
         <div>
-            <div className='max-w-7/12 mx-auto mb-32'>
+            <div className='w-11/12 sm:w-9/12 lg:w-7/12 mx-auto mb-32'>
                 <div className='bg-white drop-shadow-xl/50 rounded-xl'>
                     <div>
                         
@@ -104,8 +104,8 @@ const PostDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='p-8 grid grid-cols-3 gap-8'>
-                        <div className='flex flex-col justify-between gap-3 col-span-2'>
+                    <div className='p-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8'>
+                        <div className='flex flex-col justify-between gap-3 xl:col-span-2'>
                             <div className='flex flex-col gap-3'>
                                 <h1 className='font-bold text-2xl'>Description</h1>
                                 <div className='p-[1px] bg-[#00A79D]'></div>
@@ -115,6 +115,8 @@ const PostDetails = () => {
                                 <div>
                                     <h1 className='w-fit py-1 px-3 bg-amber-100 rounded-xl text-sm flex items-center gap-3 '><GoInfo className='text-xl text-[#00A79D]' /> We're here to help people to reunite with their belongings !</h1>
                                 </div>
+                                <div className='hidden lg:block'>
+
                                 {item?.post_type === "Lost" ? <motion.button
                                     onClick={()=>setModal(true)}
                                     initial={{ opacity: 0 }}
@@ -129,11 +131,12 @@ const PostDetails = () => {
                                         whileInView={{ opacity: 1 }}
                                         className='w-fit py-2 px-4 bg-[#00A79D] text-white hover:bg-[#00A79D80] rounded-lg cursor-pointer'>This is Mine !</motion.button>}
                                 
+                                </div>
                                 
                             </div>
                         </div>
                         <div>
-                            <div className="bg-base-200 rounded-xl shadow p-6 w-80 space-y-4">
+                            <div className="bg-base-200 rounded-xl shadow p-6  space-y-4 ">
                                 <h2 className="text-xl font-semibold">Details</h2>
                                 <div>
                                     <span className="font-medium">Category:</span>
@@ -162,6 +165,23 @@ const PostDetails = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className='w-full pt-8 block lg:hidden'>
+
+                                {item?.post_type === "Lost" ? <motion.button
+                                    onClick={()=>setModal(true)}
+                                    initial={{ opacity: 0 }}
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }}
+                                    whileInView={{ opacity: 1 }}
+                                    className='w-full py-2 px-4 bg-[#00A79D] text-white hover:bg-[#00A79D80] rounded-lg cursor-pointer'>Found This !</motion.button> : <motion.button
+                                        onClick={()=>setModal(true)}
+                                        initial={{ opacity: 0 }}
+                                        whileHover={{ scale: 1.2 }}
+                                        whileTap={{ scale: 0.8 }}
+                                        whileInView={{ opacity: 1 }}
+                                        className='w-full py-2 px-4 bg-[#00A79D] text-white hover:bg-[#00A79D80] rounded-lg cursor-pointer'>This is Mine !</motion.button>}
+                                
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -173,10 +193,6 @@ const PostDetails = () => {
             <div className={`w-fit  mx-auto rounded-2xl p-6  `}>
                 <div className='text-center py-8'>
                     <h1 className='text-3xl sm:text-5xl font-semibold text-white'>
-                        {/* {item?.post_type === "Lost" ? <motion.button
-
-                                    className='w-fit py-2 px-4  text-gray-600  rounded-lg cursor-pointer'>Found This !</motion.button> : <motion.button
-                                        className='w-fit py-2 px-4  text-gray-600 rounded-lg cursor-pointer'>This is Mine !</motion.button>} */}
                     </h1>
                 </div>
                     <div className=' bg-white p-8 rounded-2xl drop-shadow-xl/40'>
@@ -194,7 +210,7 @@ const PostDetails = () => {
                             
                             <div className='flex justify-between items-center'>
                                 <DatePicker
-                                className='border border-gray-300 rounded-2xl w-[250px] bg-white'
+                                className='border border-gray-300 rounded-2xl w-[180px] sm:w-[250px] bg-white'
                                 showIcon
                                 selected={selectedDate}
                                 onChange={(date) => setSelectedDate(date)}
@@ -240,7 +256,7 @@ const PostDetails = () => {
                                                     }
                                                     }}
                                     >
-                                        <SiAlchemy className='text-6xl text-[#00A79D] drop-shadow-xl/20' />
+                                        <SiAlchemy className='text-5xl sm:text-6xl text-[#00A79D] drop-shadow-xl/20' />
                                     </motion.div>
                                         
                             </div>
@@ -248,7 +264,7 @@ const PostDetails = () => {
                         <div>
                             <div>
                                 <h1 className='text-base font-semibold my-2'>Contact</h1>
-                                <div className='py-2 px-4 flex items-center justify-between gap-4 bg-white border border-gray-300 rounded-2xl'>
+                                <div className='py-2 px-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:flex sm:justify-between bg-white border border-gray-300 rounded-2xl'>
                                     <div>
                                         <h1 className='font-semibold'>Name</h1>
                                         <p>{ user.displayName}</p>

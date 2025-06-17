@@ -32,9 +32,6 @@ const Banner = () => {
       
 
   <SwiperSlide>
-    {/* <img
-      src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-      className="w-full" /> */}
       <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly xl:gap-10 w-full h-full   '>
         <div className='flex flex-col gap-6 text-center lg:text-start'>
           <Fade direction="top" duration={500}>
@@ -56,7 +53,7 @@ const Banner = () => {
           <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Ask Our AI</button>
+              <button className='btn w-fit'>Read More</button>
             </div>
             </Fade>
         </div>
@@ -85,9 +82,6 @@ const Banner = () => {
   </SwiperSlide>
   
   <SwiperSlide>
-    {/* <img
-      src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-      className="w-full" /> */}
       <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly w-full h-full   '>
         <div className='flex flex-col gap-6 text-center lg:text-start'>
           <Fade direction="top" duration={700}>
@@ -109,7 +103,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Ask Our AI</button>
+              <button className='btn w-fit'>Read More</button>
             </div>
             </Fade>
                 
@@ -138,9 +132,6 @@ const Banner = () => {
   </SwiperSlide>
   
   <SwiperSlide>
-    {/* <img
-      src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-      className="w-full" /> */}
       <div className='flex flex-col justify-center items-center lg:flex lg:flex-row lg:items-center lg:justify-evenly xl:gap-10 w-full h-full   '>
 
         <div className='flex flex-col gap-6 text-center lg:text-start'>
@@ -163,7 +154,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Ask Our AI</button>
+              <button className='btn w-fit'>Read More</button>
             </div>
             </Fade>
                 

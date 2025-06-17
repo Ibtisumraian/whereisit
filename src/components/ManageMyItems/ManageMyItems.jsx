@@ -42,8 +42,8 @@ const ManageMyItems = () => {
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#00A79D",
+            cancelButtonColor: "#EF5350",
             confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -62,7 +62,7 @@ const ManageMyItems = () => {
                             icon: "success"
                             });
 
-                            
+                            setItems(prevItems => prevItems.filter(item => item._id !== id));
                         }
                     })
                 )

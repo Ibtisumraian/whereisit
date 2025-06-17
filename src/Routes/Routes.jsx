@@ -11,6 +11,7 @@ import PostDetails from "../components/PostDetails/PostDetails";
 import AllRecovered from "../components/AllRecovered/AllRecovered";
 import ManageMyItems from "../components/ManageMyItems/ManageMyItems";
 import UpdatePost from "../components/UpdatePost/UpdatePost";
+import PageNotFound from "../components/PageNotFound/PageNotFound";
 
 export const router = createBrowserRouter([
   {
@@ -79,4 +80,8 @@ export const router = createBrowserRouter([
         },
     ]
   },
+  {
+    path: '*',
+    element: <PageNotFound/>
+  }
 ]);

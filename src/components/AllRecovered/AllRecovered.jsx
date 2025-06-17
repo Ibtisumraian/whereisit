@@ -4,6 +4,7 @@ import { PiBatteryWarningFill } from "react-icons/pi";
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
 import { RiFindReplaceLine } from "react-icons/ri";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 
 const AllRecovered = () => {
     const [items, setItems] = useState([])
@@ -11,6 +12,10 @@ const AllRecovered = () => {
     const { user } = useAuth()
     console.log(items);
 
+    useEffect(() => {
+        document.title = "All Recovered Items | WhereIsIt";
+    }, []);
+    
     setTimeout(() => {
         setLoading(false)
     }, 3000);
@@ -28,6 +33,10 @@ const AllRecovered = () => {
 
     return (
         <div>
+                {/* <Helmet>
+                    <title>Home | All Recovered Items</title>
+                    <meta name="description" content="Lost and Found - Home Page" />
+                </Helmet> */}
             <div className='w-7/12 mx-auto mb-32'>
                 <div className='text-center py-4 mt-20 mb-10 '>
                     {!loading && items?.length > 0 ? <h1 className='text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}

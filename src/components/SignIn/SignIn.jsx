@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { Bounce, toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
@@ -8,6 +8,11 @@ const SignIn = () => {
     const { userSignInWithEmailPass, userSignInWithGoogle} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
+
+    useEffect(() => {
+        document.title = "Sign In | WhereIsIt";
+    }, []);
+    
 console.log(typeof(location.state), "=", location.state );
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()

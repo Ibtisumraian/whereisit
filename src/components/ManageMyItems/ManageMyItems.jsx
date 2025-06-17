@@ -5,14 +5,20 @@ import { RiFindReplaceLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { MdDeleteOutline, MdOutlineEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const ManageMyItems = () => {
+    // const [initialItems, setInitialItems] = useState([])
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
     const { user } = useAuth()
     const navigate = useNavigate()
     console.log(items);
 
+    useEffect(() => {
+        document.title = "Manage My Items | WhereIsIt";
+    }, []);
+    
     setTimeout(() => {
         setLoading(false)
     }, 3000);
@@ -24,11 +30,47 @@ const ManageMyItems = () => {
         })
         .then(res=>res.json()
             .then(data =>
+                // setInitialItems(data),
                 setItems(data),
             )
     )
     }, [user])
     
+    const handleItemDeleteButton = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                
+                console.log('deleted');
+                        fetch(`https://lost-and-found-server-mu.vercel.app/delete/${id}`, {
+                            method: "DELETE",
+                            credentials: 'include'
+                    })
+                    .then(res=>res.json()
+                    .then(data =>{
+                        if (data.deletedCount) {
+                            Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                            });
+
+                            
+                        }
+                    })
+                )
+                }
+                
+        });
+    }
+
 
     return (
         <div>
@@ -62,7 +104,7 @@ const ManageMyItems = () => {
                                         <td>{item?.user_name}</td>
                                         {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
                                         <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2' /></td>
-                                        <td><MdDeleteOutline  className='text-4xl rounded-xl text-white bg-red-400 p-2' /></td>
+                                        <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2' /></td>
                                     </tr>
                                 })
                             }

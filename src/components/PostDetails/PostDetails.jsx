@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa6';
 import { GoInfo } from "react-icons/go";
@@ -24,6 +24,10 @@ const PostDetails = () => {
     // console.log(selectedDate, splitDate);
     // console.log(item);
 
+    useEffect(() => {
+        document.title = "Post Details | WhereIsIt";
+    }, []);
+    
     const handleRecoveredFormSubmit = (e) => {
         e.preventDefault()
         if (item.recovered) {

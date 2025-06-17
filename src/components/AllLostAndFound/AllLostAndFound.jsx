@@ -3,6 +3,7 @@ import { FaMapLocationDot } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
 import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 
 const AllLostAndFound = () => {
     const data = useLoaderData()
@@ -10,6 +11,10 @@ const AllLostAndFound = () => {
     const [items, setItems] = useState([])
     const navigate = useNavigate()
 
+    useEffect(() => {
+      document.title = "All Lost & Found Items | WhereIsIt";
+    }, []);
+    
     useEffect(() => {
         setInitialItems(data)
         setItems(initialItems)
@@ -31,6 +36,10 @@ const AllLostAndFound = () => {
     }
     return (
         <div className='mb-32'>
+                {/* <Helmet>
+                    <title>Home | Lost and found items</title>
+                    <meta name="description" content="Lost and Found - Home Page" />
+                </Helmet> */}
             <div>
                 <motion.div 
                 initial={{ opacity: 0, y: 10 }}

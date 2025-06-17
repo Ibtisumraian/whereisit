@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { motion } from "framer-motion";
@@ -16,6 +16,10 @@ const AddLostAndFound = () => {
     const [mm, dd, yy] = currentDate
     const splitDate = `${dd}/${mm}/${yy}` 
     console.log(selectedDate);
+    
+    useEffect(() => {
+        document.title = "Add Lost & Found Item | WhereIsIt";
+    }, []);
     
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()

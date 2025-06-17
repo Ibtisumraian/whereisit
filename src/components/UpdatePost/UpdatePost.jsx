@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { motion } from "framer-motion";
@@ -10,6 +10,9 @@ import { useLoaderData } from 'react-router';
 registerLocale('en-GB', enGB)
 
 const UpdatePost = () => {
+    useEffect(() => {
+        document.title = "Update Item | WhereIsIt";
+    }, []);
     const item = useLoaderData()
     console.log(item);
     

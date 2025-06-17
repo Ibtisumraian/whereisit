@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../../components/Banner/Banner';
 import { FaCalendarDays, FaMapLocationDot } from 'react-icons/fa6';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
@@ -12,6 +12,9 @@ const Home = () => {
     const recentItems = useLoaderData()
     const { user } = useAuth()
     const navigate = useNavigate()
+    useEffect(() => {
+        document.title = "WhereIsIt";
+    }, []);
     const handleViewDetailsButton = (id) => {
        return navigate(`/item/${id}`)
     }

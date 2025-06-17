@@ -7,6 +7,11 @@ import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
     const { userSignUpWithEmailPass, userSignInWithGoogle } = useAuth()
+
+    useEffect(() => {
+        document.title = "Sign Up | WhereIsIt";
+    }, []);
+    
     useEffect(() => {
              window.scrollTo(0, 0)        
          }, [])

@@ -3,7 +3,7 @@ import useAuth from '../../hooks/useAuth';
 import { PiBatteryWarningFill } from "react-icons/pi";
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
 import { RiFindReplaceLine } from "react-icons/ri";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
 import { FaMapLocationDot, FaSquare, FaTable } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
@@ -36,7 +36,7 @@ const AllRecovered = () => {
 
     return (
         <div>
-            <div className='w-7/12 mx-auto mb-32'>
+            <div className='w-9/12 2xl:w-8/12 mx-auto mb-32'>
                 <div className='text-center py-4 mt-20 mb-10 '>
                     {!loading && items?.length > 0 ? <h1 className='text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
                 </div>
@@ -46,7 +46,12 @@ const AllRecovered = () => {
                         {layout ? 
                             <div>
                                 <div className='flex justify-between items-center'>
-                                    <div></div>
+                                    <div><motion.h1
+                                        animate={{
+                                            color: ['#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350'],
+                                            transition: {duration: 4, repeat: Infinity}
+                                        }}
+                                        className='block lg:hidden font-semibold'>Scroll Right to see</motion.h1></div>
                                     <div className='p-2 flex gap-2'>
                                         <button onClick={()=>setLayout(true)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaTable /></button>
                                         <button onClick={()=>setLayout(false)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaSquare /></button>
@@ -94,7 +99,7 @@ const AllRecovered = () => {
                         <button onClick={()=>setLayout(false)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaSquare /></button>
                     </div>
                 </div>
-                    <div className='grid grid-cols-3 gap-6'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {items.map(item => {
                   return  <motion.div
                                                 key={item._id}
@@ -160,7 +165,7 @@ const AllRecovered = () => {
                         <h1 className='text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
                         <h1 className='text-3xl font-bold fontInter text-gray-600'>None of your posted items has been <br /> recovered yet !</h1>
                     </div>
-                </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center gap-6'>
+                </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center text-center gap-6'>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}    
                             animate={{ opacity: 1, y: [0, -40, 0], x: [0, -40, 0] }}

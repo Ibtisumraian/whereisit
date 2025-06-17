@@ -74,10 +74,16 @@ const ManageMyItems = () => {
 
     return (
         <div>
-            <div className='w-7/12 mx-auto mb-32'>
-                <div className='text-center py-4 mt-20 mb-10 '>
-                    {!loading && items?.length > 0 ? <h1 className='text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
+                <div className='text-center p-2 py-4 mt-20 mb-10 '>
+                    {!loading && items?.length > 0 ? <h1 className='text-2xl sm:text-4xl font-bold fontInter text-gray-600'>Manage My Items</h1> : ""}
                 </div>
+            <div className='w-7/12 mx-auto mb-32'>
+                <motion.h1
+                    animate={{
+                        color: ['#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350', '#00A79D', '#EF5350'],
+                        transition: {duration: 4, repeat: Infinity}
+                    }}
+                    className='block lg:hidden font-semibold py-2'>Scroll Right to see</motion.h1>
                 
                 {!loading ? <>{items?.length > 0 ? <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                     <table className="table rounded-2xl border-2 border-[#00A79D]">
@@ -85,7 +91,7 @@ const ManageMyItems = () => {
                         <thead className='bg-[#00A79D] text-white text-lg'>
                         <tr className=''>
                             <th>Image</th>
-                            <th>Title</th>
+                            <th>Post Type</th>
                             <th>Posted By</th>
                             <th>Status</th>
                             <th></th>
@@ -100,7 +106,7 @@ const ManageMyItems = () => {
                                 items?.map(item => {
                                     return <tr key={ item._id} className='border border-[#00A79D]'>  
                                         <td><img className='w-[80px] h-[70px] object-cover rounded-xl' src={ item?.thumbnail} alt="" /></td>
-                                        <td>{ item?.title }</td>
+                                        <td>{ item?.post_type }</td>
                                         <td>{item?.user_name}</td>
                                         {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
                                         <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2' /></td>
@@ -121,7 +127,7 @@ const ManageMyItems = () => {
                         <h1 className='text-2xl text-gray-600 font-semibold'>No recovered items found !!</h1>
                         <h1 className='text-3xl font-bold fontInter text-gray-600'>None of your posted items has been <br /> recovered yet !</h1>
                     </div>
-                </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center gap-6'>
+                </div></div>}</> : <div className='text-5xl text-gray-600 font-bold flex flex-col items-center justify-center text-center gap-6'>
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}    
                             animate={{ opacity: 1, y: [0, -40, 0], x: [0, -40, 0] }}

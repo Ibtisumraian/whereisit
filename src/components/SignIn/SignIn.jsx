@@ -86,8 +86,8 @@ console.log(typeof(location.state), "=", location.state );
     return (
         <motion.div ref={constraintsRef} className={`sm:p-4 flex justify-center items-center  `}>
             <div className={`sm:p-4 px-5 sm:px-18 py-4 mt-8  flex justify-center items-center `} >
-                <div className='grid grid-cols-2 bg-[#00A79D] rounded-full'>
-                    <div className={`flex flex-col justify-center items-center w-fit p-8 sm:px-18 bg-white rounded-4xl drop-shadow-2xl sm:my-22`}>
+                <div className='grid grid-cols-1 xl:grid-cols-2 bg-[#00A79D] rounded-2xl xl:rounded-full'>
+                    <div className={`flex flex-col justify-center items-center w-fit p-8 sm:px-18 bg-white rounded-[90px] xl:rounded-4xl drop-shadow-2xl xl:my-22`}>
                         <div className='p-6'>
                             <p className='text-lg sm:text-xl md:text-2xl text-[#00A79D] font-semibold '>User Sign In</p>
                         </div>
@@ -188,7 +188,7 @@ console.log(typeof(location.state), "=", location.state );
                             ease: "easeInOut"
                         }
                         }}
-                    className='w-[500px] drop-shadow-xl/100' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749197946/ChatGPT_Image_zx8pln.png" alt="" />
+                    className='w-[500px] hidden xl:block drop-shadow-xl/100' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749197946/ChatGPT_Image_zx8pln.png" alt="" />
                     </div>
                 </div>
             </div>

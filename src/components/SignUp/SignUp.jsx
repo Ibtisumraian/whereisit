@@ -100,8 +100,8 @@ const SignUp = () => {
     }
     const constraintsRef = useRef(null)
     return (
-        <motion.div ref={constraintsRef} className={` sm:p-6 flex justify-center items-center `}>
-            <div className='grid grid-cols-2 items-center justify-center bg-[#00A79D] rounded-full'>
+        <motion.div ref={constraintsRef} className={`p-3 sm:p-6 flex justify-center items-center `}>
+            <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center bg-[#00A79D] rounded-2xl md:rounded-full'>
                 <div className=''>
                     <motion.img
                     drag
@@ -122,9 +122,9 @@ const SignUp = () => {
                             ease: "easeInOut"
                         }
                         }}
-                    className='relative w-[500px] drop-shadow-xl/100' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749192761/ChatGPT_Image_Jun_6__2025__11_36_04_AM-removebg-preview_bb7eic.png" alt="" />
+                    className='relative w-[500px] drop-shadow-xl/100 hidden md:block' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749192761/ChatGPT_Image_Jun_6__2025__11_36_04_AM-removebg-preview_bb7eic.png" alt="" />
                 </div>
-                <div className={`flex justify-center items-center px-5 sm:px-12 sm:py-4 h-[650px] bg-white rounded-4xl drop-shadow-2xl `}>
+                <div className={`flex justify-center items-center px-6 sm:px-12 sm:py-4 h-[650px] bg-white rounded-[90px] md:rounded-4xl drop-shadow-2xl `}>
 
                     <div className={`flex flex-col justify-center items-center w-fit    rounded-2xl `}>
                             <div className='p-6'>

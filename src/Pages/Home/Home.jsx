@@ -91,7 +91,7 @@ const Home = () => {
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.8 }}
                             whileInView={{ opacity: 1 }}
-                            className='w-fit py-2 px-4 text-lg sm:text-2xl fontInter bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer'>See All</motion.button>
+                            className='w-fit py-2 px-4 text-lg sm:text-2xl fontInter bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer drop-shadow-xl/30'>See All</motion.button>
                     </div>
 
             </div>

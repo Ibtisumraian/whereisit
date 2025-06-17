@@ -5,7 +5,7 @@ import { IoSearch } from 'react-icons/io5';
 
 const HowItWorks = () => {
     return (
-        <div className='bg-[#00A79D12] mt-32 pb-16'>
+        <div className='bg-[#00A79D12] mt-32 pb-16 text-gray-600'>
             <div className='flex items-center justify-center text-2xl sm:text-4xl fontInter font-semibold pb-12 pt-32'>
                 <h1 className=''>How WhereIsIt Works ?</h1>
             </div>
@@ -13,9 +13,9 @@ const HowItWorks = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-9/12 mx-auto'>
                 
 
-                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4'>
+                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4 drop-shadow-xl/30'>
                     <div className='text-7xl sm:text-9xl text-[#00A79D] flex items-center justify-center'>
-                        <IoMdMegaphone />
+                        <IoMdMegaphone className='drop-shadow-xl/30'/>
                     </div>
                     <div className='flex flex-col gap-3'>
                         <h1 className='font-bold text-md sm:text-xl'>1. Report an Item</h1>
@@ -24,9 +24,9 @@ const HowItWorks = () => {
                 </div>
 
 
-                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4'>
+                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4 drop-shadow-xl/30'>
                     <div className='text-7xl sm:text-9xl text-[#00A79D] flex items-center justify-center'>
-                        <IoSearch />
+                        <IoSearch className='drop-shadow-xl/30'/>
                     </div>
                     <div className='flex flex-col gap-3'>
                         <h1 className='font-bold text-md sm:text-xl'>2. Search Listings</h1>
@@ -35,9 +35,9 @@ const HowItWorks = () => {
                 </div>
 
 
-                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4'>
+                <div className='bg-white p-8 rounded-2xl flex flex-col gap-4 drop-shadow-xl/30'>
                     <div className='text-7xl sm:text-9xl text-[#00A79D] flex items-center justify-center'>
-                        <FaHandshake />
+                        <FaHandshake className='drop-shadow-xl/30'/>
                     </div>
                     <div className='flex flex-col gap-3'>
                         <h1 className='font-bold text-md sm:text-xl'>3. Connect & Recover</h1>

@@ -14,7 +14,7 @@ const UpdatePost = () => {
         document.title = "Update Item | WhereIsIt";
     }, []);
     const item = useLoaderData()
-    console.log(item);
+
     
    const { user } = useAuth()
     const [selectedDate, setSelectedDate] = useState(new Date(item?.recent_date));
@@ -22,7 +22,7 @@ const UpdatePost = () => {
     const currentDate = formattedDate.split('/')
     const [mm, dd, yy] = currentDate
     const splitDate = `${dd}/${mm}/${yy}` 
-    console.log(selectedDate);
+
     
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()
@@ -37,9 +37,9 @@ const UpdatePost = () => {
         const title = post.title
         const location = post.location
         const searchInput = title + " " + location
-        // const searchInput = `${title} ${location}`;
+
         post.Search_input=searchInput
-        console.log('Form submit',post);
+
         
         fetch(`https://lost-and-found-server-mu.vercel.app/update/${item._id}`, {
             method: "PUT",

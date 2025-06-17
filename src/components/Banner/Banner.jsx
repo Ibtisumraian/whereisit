@@ -53,7 +53,7 @@ const Banner = () => {
           <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
         </div>
@@ -103,7 +103,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
                 
@@ -154,7 +154,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
                 

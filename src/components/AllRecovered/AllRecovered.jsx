@@ -13,7 +13,6 @@ const AllRecovered = () => {
     const [loading, setLoading] = useState(true)
     const [layout, setLayout] = useState(false)
     const { user } = useAuth()
-    console.log(items);
 
     useEffect(() => {
         document.title = "All Recovered Items | WhereIsIt";
@@ -132,7 +131,7 @@ const AllRecovered = () => {
                                             <p className="text-gray-500 text-sm flex items-center gap-2"> { item?.recovered_item_data?.title }</p>
                                             <p className="text-gray-500 text-sm flex items-center gap-2"> { item?.recoveredLocation }</p>
                                             <p className="text-gray-400 text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item?.recovered_date }</p>
-                                            {/* { item.recovered && <h1>Recovered</h1>} */}
+
                                             <div className='flex flex-col justify-self-end'>
                                             <motion.button 
  

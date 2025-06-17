@@ -19,12 +19,10 @@ const AllLostAndFound = () => {
         setInitialItems(data)
         setItems(initialItems)
     },[data, initialItems])
-    console.log(items);
     
     const handleSearchItem = (e) => {
         e.preventDefault()
         const title = e.target.search.value
-        console.log(title);
         fetch(`https://lost-and-found-server-mu.vercel.app/items?title=${title}`, { credentials: 'include' })
         .then(res => res.json())
         .then(data => setItems(data));
@@ -36,10 +34,6 @@ const AllLostAndFound = () => {
     }
     return (
         <div className='mb-32'>
-                {/* <Helmet>
-                    <title>Home | Lost and found items</title>
-                    <meta name="description" content="Lost and Found - Home Page" />
-                </Helmet> */}
             <div>
                 <motion.div 
                 initial={{ opacity: 0, y: 10 }}
@@ -156,7 +150,6 @@ const AllLostAndFound = () => {
                         <p className="text-gray-600 text-xs sm:text-sm max-w-[300px]">{ item.description }</p>
                         <p className="text-gray-500 text-xs sm:text-sm flex items-center gap-2"><FaMapLocationDot className='text-[#00A79D]' /> { item.location }</p>
                         <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
-                        {/* { item.recovered && <h1>Recovered</h1>} */}
                         <div className='flex flex-col justify-self-end drop-shadow-xl/40'>
                         <motion.button 
                         onClick={()=>handleViewDetailsButton(item._id)}

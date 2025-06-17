@@ -8,12 +8,11 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const ManageMyItems = () => {
-    // const [initialItems, setInitialItems] = useState([])
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
     const { user } = useAuth()
     const navigate = useNavigate()
-    console.log(items);
+
 
     useEffect(() => {
         document.title = "Manage My Items | WhereIsIt";
@@ -30,7 +29,6 @@ const ManageMyItems = () => {
         })
         .then(res=>res.json()
             .then(data =>
-                // setInitialItems(data),
                 setItems(data),
             )
     )
@@ -48,7 +46,7 @@ const ManageMyItems = () => {
             }).then((result) => {
                 if (result.isConfirmed) {
                 
-                console.log('deleted');
+
                         fetch(`https://lost-and-found-server-mu.vercel.app/delete/${id}`, {
                             method: "DELETE",
                             credentials: 'include'

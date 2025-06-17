@@ -22,8 +22,7 @@ const PostDetails = () => {
     const currentDate = formattedDate.split('/')
     const [mm, dd, yy] = currentDate
     const splitDate = `${dd}/${mm}/${yy}` 
-    // console.log(selectedDate, splitDate);
-    // console.log(item);
+
 
     useEffect(() => {
         document.title = "Post Details | WhereIsIt";
@@ -50,7 +49,6 @@ const PostDetails = () => {
         }
 
 
-        console.log("Recovered Data Submitted", recoveredData);
         const pId = {
             id: item._id,
         }
@@ -64,7 +62,6 @@ const PostDetails = () => {
         })
         .then(res=>res.json())
         .then((data)=>{
-            console.log(data);
             if (data.modifiedCount) {
                 Swal.fire({
                     position: "top-end",
@@ -332,13 +329,12 @@ const PostDetails = () => {
 
                                     
                             {item?.post_type === "Lost" ? <motion.button
-                                    // onClick={()=>setModal(false)}
                                     initial={{ opacity: 0 }}
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.8 }}
                                     whileInView={{ opacity: 1 }}
                                     className='w-full py-2 px-4 bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer'>Found This !</motion.button> : <motion.button
-                                        // onClick={()=>setModal(false)}
+
                                         initial={{ opacity: 0 }}
                                         whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.8 }}

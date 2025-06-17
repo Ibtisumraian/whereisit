@@ -13,7 +13,6 @@ const SignIn = () => {
         document.title = "Sign In | WhereIsIt";
     }, []);
     
-console.log(typeof(location.state), "=", location.state );
     const handleFormSubmitBtn = (e) => {
         e.preventDefault()
         const email = e.target.email.value

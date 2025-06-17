@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
                     withCredentials: true
                 })
                 .then(res=>
-                    console.log("token after jwt",res.data)   
+                    console.log("JWT Token set In the cookies successful",res.data)   
                 )
                 .catch(error=>{
                     console.log(error);

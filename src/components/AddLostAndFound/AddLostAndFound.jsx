@@ -16,7 +16,7 @@ const AddLostAndFound = () => {
     const currentDate = formattedDate.split('/')
     const [mm, dd, yy] = currentDate
     const splitDate = `${dd}/${mm}/${yy}` 
-    console.log(selectedDate);
+
     
     useEffect(() => {
         document.title = "Add Lost & Found Item | WhereIsIt";
@@ -35,9 +35,7 @@ const AddLostAndFound = () => {
         const title = post.title
         const location = post.location
         const searchInput = title + " " + location
-        // const searchInput = `${title} ${location}`;
         post.Search_input=searchInput
-        console.log('Form submit',post);
         
         fetch("https://lost-and-found-server-mu.vercel.app/items", {
             method: "POST",
@@ -49,7 +47,6 @@ const AddLostAndFound = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log("response after post", data);
             if (data.insertedId) {
                 Swal.fire({
                     position: "top-end",

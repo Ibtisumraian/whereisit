@@ -40,55 +40,59 @@ const AllRecovered = () => {
                 <div className='text-center py-4 mt-20 mb-10 '>
                     {!loading && items?.length > 0 ? <h1 className='text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
                 </div>
-                <div className='flex justify-between items-center'>
+
+                {!loading ? <>{items?.length > 0 ?
+                    <>
+                        {layout ? 
+                            <div>
+                                <div className='flex justify-between items-center'>
+                                    <div></div>
+                                    <div className='p-2 flex gap-2'>
+                                        <button onClick={()=>setLayout(true)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaTable /></button>
+                                        <button onClick={()=>setLayout(false)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaSquare /></button>
+                                    </div>
+                                </div>
+                                <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+                        <table className="table rounded-2xl border-2 border-[#00A79D]">
+                            {/* head */}
+                            <thead className='bg-[#00A79D] text-white text-lg'>
+                            <tr className=''>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Recovered Location</th>
+                                <th>Recovered Date</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                    {
+                                    items?.map(item => {
+                                        return <tr key={ item._id} className='border border-[#00A79D]'>  
+                                            <td><img className='w-[80px] h-[70px] object-cover rounded-xl' src={ item?.recovered_item_data?.thumbnail} alt="" /></td>
+                                            <td>{ item?.recovered_item_data?.title }</td>
+                                            <td>{ item?.recoveredLocation }</td>
+                                            <td>{ item?.recovered_date }</td>
+                                            <td><IoCheckmarkDoneCircleOutline className='text-3xl text-[#00A79D]' /></td>
+                                        </tr>
+                                    })
+                                }
+
+                                
+
+                            </tbody>
+                        </table>
+                                </div>
+                            </div>
+
+                            :
+                <div>
+                    <div className='flex justify-between items-center'>
                     <div></div>
                     <div className='p-2 flex gap-2'>
                         <button onClick={()=>setLayout(true)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaTable /></button>
                         <button onClick={()=>setLayout(false)} className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaSquare /></button>
                     </div>
-                </div>
-                {!loading ? <>{items?.length > 0 ?
-                    <>
-                        {layout ? 
-                            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-                    <table className="table rounded-2xl border-2 border-[#00A79D]">
-                        {/* head */}
-                        <thead className='bg-[#00A79D] text-white text-lg'>
-                        <tr className=''>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Recovered Location</th>
-                            <th>Recovered Date</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                                {
-                                items?.map(item => {
-                                    return <tr key={ item._id} className='border border-[#00A79D]'>  
-                                        <td><img className='w-[80px] h-[70px] object-cover rounded-xl' src={ item?.recovered_item_data?.thumbnail} alt="" /></td>
-                                        <td>{ item?.recovered_item_data?.title }</td>
-                                        <td>{ item?.recoveredLocation }</td>
-                                        <td>{ item?.recovered_date }</td>
-                                        <td><IoCheckmarkDoneCircleOutline className='text-3xl text-[#00A79D]' /></td>
-                                    </tr>
-                                })
-                            }
-
-                            
-
-                        </tbody>
-                    </table>
-                            </div>
-                            :
-                <div>
-                    <div className='flex justify-between items-center'>
-                    <div></div>
-                    {/* <div className='p-2 flex gap-2'>
-                        <button className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaTable /></button>
-                        <button className='w-fit text-[#00A79D] text-2xl cursor-pointer'> <FaSquare /></button>
-                    </div> */}
                 </div>
                     <div className='grid grid-cols-3 gap-6'>
                 {items.map(item => {

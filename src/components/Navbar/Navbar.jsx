@@ -97,7 +97,7 @@ const Navbar = () => {
                       <div tabIndex={0} role="button" className="">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV ">
-                            <div className="w-8 sm:w-12 rounded-full border-[3px] border-[#00A79D]">
+                            <div className="w-8 sm:w-12 rounded-full border-[3px]  border-[#00A79D]">
                               <a data-tooltip-id="my-tooltip" data-tooltip-content={user ? user.displayName : "User Name"}>
                                   <img src={user ? user?.photoURL : "https://res.cloudinary.com/dd4np04jl/image/upload/v1749252066/images_1_vzswvu.png"} />
                               </a>
@@ -109,24 +109,24 @@ const Navbar = () => {
                                 }}
                                                             />
                             </div>
-                        </div>
-                            
-                            {/* <div className="hide absolute text-sm -top-5 -left-4">{user ? userName : ""}</div> */}
+                        </div>                                                       
                         </div>
                     </div>
-                      <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  border-2 border-[#00A79D]  shadow-sm">
-                          <div className="border-b-2 border-b-[#00A79D] flex flex-col gap-1 text-md pb-2">
-                              <h1 className="font-bold text-[#00A79D]">{user ? user?.displayName : "User Name"}</h1>
-                              <p className="text-gray-500">{user ? user?.email : "User Email"}</p>
+                        <div tabIndex={0} className="dropdown-content menu  bg-[#00A79D99] drop-shadow-xl/800 rounded-xl z-1 w-52  border-2 border-[#00A79D] ">
+                    <div className="bg-base-200 rounded-br-[120px]">
+                            <div className="border-b-2 border-b-[#00A79D] flex flex-col gap-1 text-md p-2">
+                                <h1 className="font-bold text-[#00A79D]">{user ? user?.displayName : "User Name"}</h1>
+                                <p className="text-gray-500">{user ? user?.email : "User Email"}</p>
+                            </div>
+                          
+                          <div className=" flex flex-col gap-1 text-md  my-3">
+                              <NavLink to='/addItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-600" >Add Lost & Found Item </NavLink>
+                              <NavLink to={`/allRecovered`} className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-600">All Recovered Items</NavLink>
+                              <NavLink to='/manageMyItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-600">Manage My Items</NavLink>
                           </div>
-                        
-                        <div className=" flex flex-col gap-3 text-md  my-3">
-                            <NavLink to='/addItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500" >Add Lost & Found Item </NavLink>
-                            <NavLink to={`/allRecovered`} className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">All Recovered Items</NavLink>
-                            <NavLink to='/manageMyItems' className=" hover:bg-[#00A79D10] py-1 px-3  text-gray-500">Manage My Items</NavLink>
-                        </div>
-                        
+                          
                     </div>
+                      </div> 
     </motion.div>
     }
 

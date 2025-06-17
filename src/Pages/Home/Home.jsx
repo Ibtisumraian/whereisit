@@ -27,10 +27,10 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div>
-                    <div className='flex items-center justify-center mb-16 mt-32'>
-                        <h1 className='text-5xl font-bold fontInter text-gray-600'>Latest Lost & Found Items</h1>
+                    <div className='flex items-center justify-center mb-16 mt-32 text-center p-3'>
+                        <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-600'>Latest Lost & Found Items</h1>
                     </div>
-                <div className='grid grid-cols-3 gap-6 w-9/12 mx-auto'>
+                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-9/12 mx-auto'>
                     
 
                     {
@@ -56,14 +56,14 @@ const Home = () => {
                         <img
                         src={ item.thumbnail }
                         alt="Cloudinary server down"
-                        className="w-[350px] h-48 object-cover rounded-xl"
+                        className="w-[350px] h-35 sm:h-48 object-cover rounded-xl"
                         />
                     </div>
 
                     <div className=" space-y-2 my-2">
-                        <h2 className="text-lg font-semibold">{ item.title }</h2>
-                        <p className="text-gray-600 text-sm max-w-[300px]">{ item.description }</p>
-                        <p className="text-gray-400 text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
+                        <h2 className="text-base sm:text-lg font-semibold">{ item.title }</h2>
+                        <p className="text-gray-600 text-xs sm:text-sm max-w-[300px]">{ item.description }</p>
+                        <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
                         <div className='flex justify-between items-baseline-last drop-shadow-xl/40'>
                         <div></div>
                         <motion.button 
@@ -72,7 +72,7 @@ const Home = () => {
                         whileTap={{ scale: 0.8 }}
                         whileInView={{ opacity: 1 }}
                         onClick={()=>handleViewDetailsButton(item._id)}
-                        className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-sm font-medium py-2 px-4 rounded">
+                        className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-xs sm:text-sm font-medium py-2 px-4 rounded">
                         View Details
                         </motion.button>
                         </div>
@@ -91,7 +91,7 @@ const Home = () => {
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.8 }}
                             whileInView={{ opacity: 1 }}
-                            className='w-fit py-2 px-4 text-2xl fontInter bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer'>See All</motion.button>
+                            className='w-fit py-2 px-4 text-lg sm:text-2xl fontInter bg-[#00A79D] text-white hover:bg-[#00A79D80] mt-6 rounded-lg cursor-pointer'>See All</motion.button>
                     </div>
 
             </div>

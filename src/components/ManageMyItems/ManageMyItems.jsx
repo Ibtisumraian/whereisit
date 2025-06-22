@@ -110,8 +110,8 @@ const ManageMyItems = () => {
                                             <td>{ item?.post_type }</td>
                                             <td>{item?.user_name}</td>
                                             {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
-                                            <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2' /></td>
-                                            <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2' /></td>
+                                            <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2 cursor-pointer' /></td>
+                                            <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2 cursor-pointer' /></td>
                                         </tr>
                                     })
                                 }

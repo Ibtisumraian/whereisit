@@ -7,6 +7,7 @@ import { FaWpforms } from 'react-icons/fa6';
 import { registerLocale } from 'react-datepicker'
 import enGB from 'date-fns/locale/en-GB'
 import { useLoaderData } from 'react-router';
+import Swal from 'sweetalert2';
 registerLocale('en-GB', enGB)
 
 const UpdatePost = () => {
@@ -52,6 +53,15 @@ const UpdatePost = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log("response after post", data);
+            if (data.modifiedCount) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Updated Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
             e.target.reset()
         })
     }

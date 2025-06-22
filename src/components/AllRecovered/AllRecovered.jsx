@@ -121,7 +121,7 @@ const AllRecovered = () => {
                                             <img
                                             src={ item?.recovered_item_data?.thumbnail }
                                             alt="Cloudinary server down"
-                                            className="w-[200px] h-30 object-cover rounded-xl"
+                                            className="w-[300px] h-35 sm:h-40 object-cover rounded-xl"
                                             />                                          
                                         </div>
                     

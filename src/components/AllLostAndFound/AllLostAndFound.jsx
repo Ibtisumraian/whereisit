@@ -84,9 +84,26 @@ const AllLostAndFound = () => {
             </motion.div>
             </div>
 
-            <div className='text-center py-4 mt-20 mb-10 px-3'>
-                <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-600'>Lost And Found Items</h1>
-            </div>
+             <motion.div
+                 className='flex flex-col items-center justify-center mt-24 mb-16 px-4 text-center'
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.7, ease: 'easeOut' }}
+                 viewport={{ once: true, amount: 0.4 }}
+                 >
+                 <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-700'>
+                 Lost <span className='text-[#00A79D]'>& Found</span> Items
+                 <motion.div
+                     className='mt-3 h-1 w-full rounded-full bg-[#00A79D]'
+                     initial={{ scaleX: 0 }}
+                     whileInView={{ scaleX: 1 }}
+                     transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+                     style={{ originX: 0 }}
+                 />
+                 </h1>
+             
+                                     
+            </motion.div>
 
                 <div className='w-11/12 mx-auto py-8'>
                 <motion.button

@@ -6,6 +6,7 @@ import CommonlyLostAndFound from '../../components/CommonlyLostAndFound/Commonly
 import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 import { MdDateRange } from 'react-icons/md';
+import PromotionalSection from '../../components/PromotionalSection/PromotionalSection';
 
 const Home = () => {
     const recentItems = useLoaderData()
@@ -26,9 +27,26 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div>
-                    <div className='flex items-center justify-center mb-16 mt-16 text-center p-3'>
-                        <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-600'>Latest Lost & Found Items</h1>
-                    </div>
+                    <motion.div
+                        className='flex flex-col items-center justify-center mt-24 mb-16 px-4 text-center'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: 'easeOut' }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        >
+                        <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-700'>
+                        Latest <span className='text-[#00A79D]'>Lost & Found</span> Items
+                        <motion.div
+                            className='mt-3 h-1 w-full rounded-full bg-[#00A79D]'
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+                            style={{ originX: 0 }}
+                        />
+                        </h1>
+
+                        
+                        </motion.div>
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -110,8 +128,15 @@ const Home = () => {
 
             </div>
 
-            <HowItWorks></HowItWorks>
-            <CommonlyLostAndFound></CommonlyLostAndFound>
+            <div>
+                <HowItWorks></HowItWorks>
+            </div>
+            <div>
+                <CommonlyLostAndFound></CommonlyLostAndFound>
+            </div>
+            <div>
+                <PromotionalSection/>
+            </div>
         </div>
     );
 };

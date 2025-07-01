@@ -3,7 +3,7 @@ import { FaMapLocationDot } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
 import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
-import { Helmet } from 'react-helmet-async';
+
 
 const AllLostAndFound = () => {
     const data = useLoaderData()
@@ -33,13 +33,13 @@ const AllLostAndFound = () => {
        return navigate(`/item/${id}`)
     }
     return (
-        <div className='mb-32'>
+        <div className='mb-32 mt-8'>
             <div>
                 <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className="w-9/12 mx-auto rounded-4xl drop-shadow-xl/800 bg-[#00A79D99]  flex flex-col items-center justify-center font-sans p-4 pb-10">
+                className="w-11/12 mx-auto rounded-4xl drop-shadow-xl/800 bg-[#00A79D99]  flex flex-col items-center justify-center font-sans p-4 pb-10">
                     <div className='text-center flex flex-col gap-4 my-8'>
                         <h1 className='text-2xl sm:text-4xl lg:text-5xl font-bold text-white'>Quickly narrow down your search.</h1>
                         <p className='text-white text-sm sm:text-base'>Use the search bar below to filter by item title or location. Whether you've lost something or found something valuable, <br /> help the community reconnect with their items faster.</p>
@@ -88,7 +88,7 @@ const AllLostAndFound = () => {
                 <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-600'>Lost And Found Items</h1>
             </div>
 
-                <div className='w-9/12 mx-auto py-8'>
+                <div className='w-11/12 mx-auto py-8'>
                 <motion.button
                     initial={{ opacity: 0 }}
                     whileHover={{ scale: 1.2 }}
@@ -97,74 +97,61 @@ const AllLostAndFound = () => {
                     onClick={()=>setItems(initialItems)}
                     className='btn bg-[#00A79D] text-sm sm:text-base text-white hover:bg-[#00A79D80]'>See All</motion.button>
                 </div>
-            <div className='w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8'>
+            <div className='w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
 
                 {
                     items.map(item => {
                         return <motion.div
-                            key={item._id}
-                            whileHover={{
-                                scale: [null, 1.02, 1.07],
-                            transition: {
-                                duration: 0.5,
-                                times: [0, 0.6, 1],
-                                ease: ["easeInOut", "easeOut"],
-                                },
-                            }}
-                            transition={{
-                                duration: 0.3,
-                                ease: "easeOut",
-                            }}
-                            className='bg-[#00A79D] rounded-xl  drop-shadow-xl/40'>
-                            <div key={item._id} className=" rounded-xl rounded-br-full h-full bg-white  border border-gray-200 p-6">
-                    <div className=''>
-                        <div className="relative">
-                        <img
-                        src={ item.thumbnail }
-                        alt="Cloudinary server down"
-                        className="w-[370px] h-40 lg:h-48 object-cover rounded-xl"
-                        />
-                        <motion.span 
-                            initial={{ opacity: 0, y: 50 }}    
-                            animate={{ opacity: 1, y: [0, 5, 0], x: [0, 5, 0] }}
-                            transition={{
-                                opacity: { duration: 1 },
-                                y: {
-                                     duration: 8,
-                                     repeat: Infinity,
-                                     ease: "easeInOut"
-                                },
-                                x: {
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }
-                            }}
-                        className={`absolute top-2 left-2 text-white text-[10px] sm:text-xs font-semibold px-2 py-1 rounded ${item.post_type === "Lost" ? "bg-red-400" : "bg-[#00A79D]"}`}>
-                        { item.post_type }
-                        </motion.span>
-                    </div>
-
-                    <div className=" space-y-2 my-2">
-                        <h2 className="text-base sm:text-md lg:text-lg font-semibold">{ item.title }</h2>
-                        <p className="text-gray-600 text-xs sm:text-sm max-w-[300px]">{ item.description }</p>
-                        <p className="text-gray-500 text-xs sm:text-sm flex items-center gap-2"><FaMapLocationDot className='text-[#00A79D]' /> { item.location }</p>
-                        <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
-                        <div className='flex flex-col justify-self-end drop-shadow-xl/40'>
-                        <motion.button 
-                        onClick={()=>handleViewDetailsButton(item._id)}
-                        initial={{ opacity: 0 }}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.8 }}
-                        whileInView={{ opacity: 1 }}
-                        className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-xs sm:text-sm font-medium py-2 px-4 rounded">
-                        View Details
-                        </motion.button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                        </motion.div>
+                                                key={item._id}
+                                                initial={{ opacity: 0, y: 50 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                whileHover={{
+                                                    scale: 1.02,
+                                                    boxShadow: "0px 12px 20px rgba(0, 0, 0, 0.1)",
+                                                    transition: { duration: 0.3 },
+                                                }}
+                                                className="bg-white rounded-2xl shadow-md border border-gray-200 w-full h-full flex flex-col transition-all duration-300"
+                                                >
+                                                {/* Image Section */}
+                                                <div className="overflow-hidden rounded-t-2xl">
+                                                    <img
+                                                    src={item.thumbnail}
+                                                    alt="Item thumbnail"
+                                                    className="w-full h-48 object-cover rounded-t-2xl transform hover:scale-105 transition-transform duration-500 ease-in-out"
+                                                    />
+                                                </div>
+                        
+                                                {/* Content Section */}
+                                                <div className="flex flex-col justify-between flex-grow p-5">
+                                                    <div className="space-y-3">
+                                                    <h2 className="text-lg font-semibold text-gray-800 truncate">
+                                                        {item.title}
+                                                    </h2>
+                        
+                                                    <p className="text-sm text-gray-600 line-clamp-3">
+                                                        {item.description}
+                                                    </p>
+                        
+                                                    <p className="text-xs text-gray-400 flex items-center gap-1">
+                                                        <MdDateRange className="text-[#00A79D]" /> {item.date}
+                                                    </p>
+                                                    </div>
+                        
+                                                    {/* Button pinned to bottom */}
+                                                    <div className="mt-4 pt-2 flex justify-between">
+                                                    <div></div>
+                                                    <motion.button
+                                                        whileHover={{ scale: 1.08 }}
+                                                        whileTap={{ scale: 0.92 }}
+                                                        className="w-fit text-center cursor-pointer bg-[#00A79D] text-white hover:bg-white hover:text-[#00A79D] hover:border hover:border-[#00A79D] transition-all duration-300 text-sm font-medium py-2 px-4 rounded-full"
+                                                        onClick={() => handleViewDetailsButton(item._id)}
+                                                    >
+                                                        View Details
+                                                    </motion.button>
+                                                    </div>
+                                                </div>
+                                                </motion.div>
                     })
                 }
 

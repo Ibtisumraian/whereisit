@@ -26,63 +26,78 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div>
-                    <div className='flex items-center justify-center mb-16 mt-32 text-center p-3'>
+                    <div className='flex items-center justify-center mb-16 mt-16 text-center p-3'>
                         <h1 className='text-3xl sm:text-5xl font-bold fontInter text-gray-600'>Latest Lost & Found Items</h1>
                     </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-9/12 mx-auto'>
-                    
-
-                    {
-                        recentItems.map(item => {
-                            return <motion.div
-                            key={item._id}
-                            whileHover={{
-                                scale: [null, 1.02, 1.07],
-                            transition: {
-                                duration: 0.5,
-                                times: [0, 0.6, 1],
-                                ease: ["easeInOut", "easeOut"],
-                                },
-                            }}
-                            transition={{
-                                duration: 0.3,
-                                ease: "easeOut",
-                            }}
-                            className='bg-[#00A79D] rounded-xl  drop-shadow-xl/40'>
-                            <div key={item._id} className=" rounded-xl h-full rounded-br-full bg-white border border-gray-200 p-6">
-                    <div className=''>
-                        <div className="relative">
-                        <img
-                        src={ item.thumbnail }
-                        alt="Cloudinary server down"
-                        className="w-[350px] h-35 sm:h-48 object-cover rounded-xl"
-                        />
-                    </div>
-
-                    <div className=" space-y-2 my-2">
-                        <h2 className="text-base sm:text-lg font-semibold">{ item.title }</h2>
-                        <p className="text-gray-600 text-xs sm:text-sm max-w-[300px]">{ item.description }</p>
-                        <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-2"><MdDateRange className='text-[#00A79D] text-sm'/> { item.date }</p>
-                        <div className='flex justify-between items-baseline-last drop-shadow-xl/40'>
-                        <div></div>
-                        <motion.button 
-                        initial={{ opacity: 0 }}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.8 }}
-                        whileInView={{ opacity: 1 }}
-                        onClick={()=>handleViewDetailsButton(item._id)}
-                        className="mt-2 w-fit cursor-pointer  bg-white text-[#00A79D] hover:bg-[#00A79D] hover:text-white text-xs sm:text-sm font-medium py-2 px-4 rounded">
-                        View Details
-                        </motion.button>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={{
+                        hidden: {},
+                        visible: {
+                        transition: {
+                            staggerChildren: 0.1,
+                        },
+                        },
+                    }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-6 w-11/12 mx-auto"
+                    >
+                    {recentItems.map((item) => (
+                        <motion.div
+                        key={item._id}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        whileHover={{
+                            scale: 1.02,
+                            boxShadow: "0px 12px 20px rgba(0, 0, 0, 0.1)",
+                            transition: { duration: 0.3 },
+                        }}
+                        className="bg-white rounded-2xl shadow-md border border-gray-200 w-full h-full flex flex-col transition-all duration-300"
+                        >
+                        {/* Image Section */}
+                        <div className="overflow-hidden rounded-t-2xl">
+                            <img
+                            src={item.thumbnail}
+                            alt="Item thumbnail"
+                            className="w-full h-48 object-cover rounded-t-2xl transform hover:scale-105 transition-transform duration-500 ease-in-out"
+                            />
                         </div>
-                    </div>
-                    </div>
-                </div>
-                        </motion.div>
-                        })
-                    }
 
-            </div>
+                        {/* Content Section */}
+                        <div className="flex flex-col justify-between flex-grow p-5">
+                            <div className="space-y-3">
+                            <h2 className="text-lg font-semibold text-gray-800 truncate">
+                                {item.title}
+                            </h2>
+
+                            <p className="text-sm text-gray-600 line-clamp-3">
+                                {item.description}
+                            </p>
+
+                            <p className="text-xs text-gray-400 flex items-center gap-1">
+                                <MdDateRange className="text-[#00A79D]" /> {item.date}
+                            </p>
+                            </div>
+
+                            {/* Button pinned to bottom */}
+                            <div className="mt-4 pt-2 flex justify-between">
+                            <div></div>
+                            <motion.button
+                                whileHover={{ scale: 1.08 }}
+                                whileTap={{ scale: 0.92 }}
+                                className="w-fit text-center cursor-pointer bg-[#00A79D] text-white hover:bg-white hover:text-[#00A79D] hover:border hover:border-[#00A79D] transition-all duration-300 text-sm font-medium py-2 px-4 rounded-full"
+                                onClick={() => handleViewDetailsButton(item._id)}
+                            >
+                                View Details
+                            </motion.button>
+                            </div>
+                        </div>
+                        </motion.div>
+                    ))}
+                    </motion.div>
+
                     <div className='flex items-center justify-center py-12'>
                     <motion.button
                             onClick={handleSeeAllButton}

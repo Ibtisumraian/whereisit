@@ -40,7 +40,7 @@ const Navbar = () => {
     }))
   }
   return (
-    <div className="shadow mb-10">
+    <div className="shadow bg-white sticky top-0 z-50">
       <div className="navbar w-11/12 mx-auto py-9 ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -68,8 +68,8 @@ const Navbar = () => {
     animate={{ opacity: 2, y: 0 }}
     transition={{ duration: 1.5, ease: 'easeOut' }}
   className="navbar-center gap-4 hidden lg:flex">
-    <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Home</NavLink>
-    <NavLink to='/allItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-xl text-gray-500">Lost & Found Items</NavLink>
+    <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">Home</NavLink>
+    <NavLink to='/allItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">Lost & Found Items</NavLink>
   </motion.div>
   <div className="navbar-end flex gap-3 sm:gap-7">
     <div className=" ">
@@ -94,7 +94,7 @@ const Navbar = () => {
         animate={{ opacity: 2, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       className=" dropdown dropdown-end ">
-                      <div tabIndex={0} role="button" className="">
+                      <div tabIndex={0} role="button" className="cursor-pointer">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV ">
                             <div className="w-8 sm:w-12 rounded-full border-[3px]  border-[#00A79D]">

@@ -20,7 +20,7 @@ const Banner = () => {
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 2, y: 0 }}
   transition={{ duration: 1, ease: 'easeOut' }}
-  className='w-9/12 mx-auto p-7 drop-shadow-xl/30 bg-gradient-to-r from-[#00A79D] to-white rounded-2xl mt-6'>
+  className='w-11/12 mx-auto p-7  bg-[#00A79D]  rounded-2xl mt-6'>
     <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}

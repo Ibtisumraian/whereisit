@@ -4,7 +4,6 @@ import { PiBatteryWarningFill } from "react-icons/pi";
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
 import { RiFindReplaceLine } from "react-icons/ri";
 import { color, motion } from "framer-motion";
-import { Helmet } from 'react-helmet-async';
 import { FaMapLocationDot, FaSquare, FaTable } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
 

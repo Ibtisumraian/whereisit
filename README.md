@@ -3,8 +3,8 @@
 A modern full-stack web application to help people post and find lost or found items. This is the client-side repository built using React and TailwindCSS, designed with responsiveness and user experience in mind.
 
 🔗 **Live Site:** [https://whereisit-app.web.app/](https://whereisit-app.web.app/)  
-📦 **Server Repo:** [GitHub - Server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Ibtisumraian)  
-💻 **Client Repo:** [GitHub - Client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-Ibtisumraian)
+💻 **Client Repo:** [GitHub - Client](https://github.com/Ibtisumraian/whereisit)
+📦 **Server Repo:** [GitHub - Server](https://github.com/Ibtisumraian/whereisit-server)  
 
 ---
 

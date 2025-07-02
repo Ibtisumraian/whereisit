@@ -36,7 +36,7 @@ const DashboardRoute = () => {
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
       <aside className="w-64 bg-[#00A79D] sticky top-0 h-screen hidden lg:flex flex-col p-6 text-white">
-        <h2 className="text-2xl font-bold mb-6 cursor-default select-none">WhereIsIt Dashboard</h2>
+        <h2 className="text-xl font-bold mb-6 cursor-default select-none">WhereIsIt Dashboard</h2>
         <nav className="flex-1 flex flex-col gap-4 text-lg">
           <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <GoHome size={20} /> Home
@@ -100,20 +100,23 @@ const DashboardRoute = () => {
               <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
               <ul className="menu bg-[#00A79D] min-h-full w-60 p-6 flex flex-col gap-6 text-white">
                 <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
-                  <GoHome size={20} /> Home
-                </Link>
-                <Link to="/DashboardRoute" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
-                  <MdOutlineDashboard size={20} /> Overview
-                </Link>
-                <Link to="UserProfile" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
-                  <FaUserCircle size={20} /> User Profile
-                </Link>
-                <Link to="MyReports" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
-                  <MdOutlineReportProblem size={20} /> My Reports
-                </Link>
-                <Link to="ReportLostItem" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
-                  <MdOutlineAddLocation size={20} /> Report Lost Item
-                </Link>
+            <GoHome size={20} /> Home
+          </Link>
+          <Link to="/Dashboard" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <MdOutlineDashboard size={20} /> Overview
+          </Link>
+          <Link to="UserProfile" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <FaUserCircle size={20} /> User Profile
+          </Link>
+          <Link to="manageMyItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <MdOutlineReportProblem size={20} /> My Reports
+          </Link>
+          <Link to="allRecovered" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <RiDeviceRecoverLine size={20} /> My Recovered
+          </Link>
+          <Link to="addItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <MdOutlineAddLocation size={20} /> Report Lost Item
+          </Link>
                 <button
                   onClick={handleSignOut}
                   className="mt-auto flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition cursor-pointer w-fit"

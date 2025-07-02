@@ -32,6 +32,18 @@ const AllLostAndFound = () => {
     const handleViewDetailsButton = (id) => {
        return navigate(`/item/${id}`)
     }
+
+    const handleRecentItems = () => {
+        fetch(`https://lost-and-found-server-mu.vercel.app/descending`)
+        .then(res => res.json())
+        .then(data => setItems(data));
+    }
+
+    const handleOldestItems = () => {
+        fetch(`https://lost-and-found-server-mu.vercel.app/ascending`)
+        .then(res => res.json())
+        .then(data => setItems(data));
+    }
     return (
         <div className='mb-32 mt-8'>
             <div>
@@ -105,7 +117,7 @@ const AllLostAndFound = () => {
                                      
             </motion.div>
 
-                <div className='w-11/12 mx-auto py-8'>
+                <div className='w-11/12 mx-auto flex items-center gap-3 py-8'>
                 <motion.button
                     initial={{ opacity: 0 }}
                     whileHover={{ scale: 1.2 }}
@@ -113,6 +125,17 @@ const AllLostAndFound = () => {
                     whileInView={{ opacity: 1 }}
                     onClick={()=>setItems(initialItems)}
                     className='btn bg-[#00A79D] text-sm sm:text-base text-white hover:bg-[#00A79D80]'>See All</motion.button>
+                <div>
+                    <button className="btn bg-[#00A79D] text-sm sm:text-base text-white hover:bg-[#00A79D80]" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
+                        Sort Items
+                        </button>
+
+                        <ul className="dropdown menu w-52  rounded-box bg-base-100 shadow-sm"
+                        popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */ }>
+                        <li onClick={handleRecentItems}><a>Recent Items</a></li>
+                        <li onClick={handleOldestItems}><a>Oldest Items</a></li>
+                        </ul>
+                </div>
                 </div>
             <div className='w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
 

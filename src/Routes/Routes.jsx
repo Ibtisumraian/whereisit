@@ -18,6 +18,8 @@ import Support from "../components/Support/Support";
 import DashboardRoute from "../Pages/Root/DashboardRoute/DashboardRoute";
 import DashboardOverview from "../components/DashboardOverview/DashboardOverview";
 import UserProfile from "../components/UserProfile/UserProfile";
+import AllLostAndFoundForDashboard from "../components/AllLostAndFoundForDashboard/AllLostAndFoundForDashboard";
+import PostDetailsForDashboard from "../components/PostDetailsForDashboard/PostDetailsForDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +107,26 @@ export const router = createBrowserRouter([
     {
       index: true,
       element: <PrivateRoute><DashboardOverview /></PrivateRoute>
+    },
+    {
+          path: 'allItemsTable',
+          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>,
+          loader: () => fetch('https://lost-and-found-server-mu.vercel.app/items', {
+            credentials: 'include'
+          }),
+          element: <AllLostAndFoundForDashboard />
+    },
+    {
+          path: 'post/:id',
+          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>,
+          loader: ({ params }) => fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`, {
+            credentials: 'include'
+          }),
+          element: <PrivateRoute><PostDetailsForDashboard /></PrivateRoute>
     },
     {
           path: 'manageMyItems',

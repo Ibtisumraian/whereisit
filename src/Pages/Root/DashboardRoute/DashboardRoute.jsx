@@ -9,6 +9,7 @@ import { Link, Outlet } from 'react-router';
 import { Bounce, toast } from 'react-toastify';
 import { auth } from '../../../components/firebase/firebase.init';
 import { RiDeviceRecoverLine } from 'react-icons/ri';
+import { BsLayoutTextWindowReverse } from "react-icons/bs";
 
 const DashboardRoute = () => {
 
@@ -46,6 +47,9 @@ const DashboardRoute = () => {
           </Link>
           <Link to="UserProfile" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <FaUserCircle size={20} /> User Profile
+          </Link>
+          <Link to="allItemsTable" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <BsLayoutTextWindowReverse size={20} /> All Items
           </Link>
           <Link to="manageMyItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <MdOutlineReportProblem size={20} /> My Reports
@@ -107,6 +111,9 @@ const DashboardRoute = () => {
           </Link>
           <Link to="UserProfile" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <FaUserCircle size={20} /> User Profile
+          </Link>
+          <Link to="allItemsTable" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <BsLayoutTextWindowReverse size={20} /> All Items
           </Link>
           <Link to="manageMyItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <MdOutlineReportProblem size={20} /> My Reports

@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 registerLocale('en-GB', enGB)
 
 
-const PostDetails = () => {
+const PostDetailsForDashboard = () => {
     const { user } = useAuth()
     const item = useLoaderData()
     const [ modal, setModal ] = useState(false)
@@ -88,55 +88,12 @@ const PostDetails = () => {
             }
             
         })
-
-        // fetch("https://lost-and-found-server-mu.vercel.app/recovered", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(recoveredData)
-        // })
-        // .then(res=>res.json())
-        // .then(data=>{
-            
-        //     // console.log("response after post", data);
-        // const pId = {
-        //     id: item._id,
-        // }
-        //     if (data.insertedId) {
-        //         fetch('https://lost-and-found-server-mu.vercel.app/items', {
-        //         method: 'PATCH',
-        //         headers: {
-        //             "content-type":"application/json"
-        //         },
-        //         body: JSON.stringify(pId)
-        // })
-        // .then(res=>res.json())
-        // .then((data)=>{
-        //     console.log(data);
-        //     if (data.modifiedCount) {
-        //         Swal.fire({
-        //             position: "top-end",
-        //             icon: "success",
-        //             title: "Recovered Successfully",
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //         });
-        //         setModal(false)
-        //         e.target.reset()
-        //     }
-            
-        // })
-        //     }
-
-            
-        // })
         
     }
     
     return (
         <div>
-            <div className='w-11/12 sm:w-9/12 lg:w-7/12 mx-auto mb-32 mt-8'>
+            <div className='w-11/12 sm:w-10/12 lg:w-9/12 mx-auto mb-32 mt-8'>
                 <div className='bg-white drop-shadow-xl/50 rounded-xl'>
                     <div>
                         
@@ -361,4 +318,4 @@ const PostDetails = () => {
     );
 };
 
-export default PostDetails;
+export default PostDetailsForDashboard;

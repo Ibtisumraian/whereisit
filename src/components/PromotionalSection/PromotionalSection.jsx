@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router';
 
 const PromotionalSection = () => {
   return (
@@ -21,9 +22,9 @@ const PromotionalSection = () => {
             Every day, people lose valuable items — from electronics to pets. <strong>WhereIsIt</strong> empowers you to act quickly:
             report, search, and reconnect with your lost belongings using a simple and secure platform.
           </p>
-          <button className='btn bg-[#00A79D] hover:bg-[#008a7f] text-white px-6 py-3 rounded-xl shadow-md transition mx-auto lg:mx-0'>
+          <Link to='/allItems'><button className='btn bg-[#00A79D] hover:bg-[#008a7f] text-white px-6 py-3 rounded-xl shadow-md transition mx-auto lg:mx-0'>
             Get Started Now
-          </button>
+          </button></Link>
         </motion.div>
 
         {/* Right Supporting Text */}

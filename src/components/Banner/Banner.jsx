@@ -11,6 +11,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from 'react-router';
 
 
 
@@ -53,7 +54,7 @@ const Banner = () => {
           <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <Link to='/allItems'><button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>View Posts</button></Link>
             </div>
             </Fade>
         </div>
@@ -103,7 +104,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <Link to='/allItems'><button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>View Posts</button></Link>
             </div>
             </Fade>
                 
@@ -154,7 +155,7 @@ const Banner = () => {
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <Link to='/allItems'><button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>View Posts</button></Link>
             </div>
             </Fade>
                 

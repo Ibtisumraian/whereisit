@@ -1,6 +1,6 @@
 import React from "react";
 import './navbar.css'
-import { NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
@@ -43,7 +43,7 @@ const Navbar = () => {
   const links = <>
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/allItems'>All Items</NavLink>
-    <NavLink to='/AboutUs'>AboutUs</NavLink>
+    <NavLink to='/AboutUs'>About Us</NavLink>
     <NavLink to='/Contact'>Contact</NavLink>
     <NavLink to='/Support'>Support</NavLink>
     <NavLink to='/Dashboard'>Dashboard</NavLink>
@@ -93,7 +93,7 @@ const Navbar = () => {
       className="flex items-center gap-3 sm:gap-7 text-md sm:text-base font-semibold">
             
             {
-                  !user ? <NavLink to='/Signin' className="hover:bg-[#00A79D10] py-1 px-3  text-gray-500 rounded-xl">Sign In</NavLink> : <button onClick={handleSignOut} className="cursor-pointer hover:bg-[#00A79D10] py-2 px-3  text-gray-500 rounded-xl"> Sign Out</button>
+                  !user ? <NavLink to='/Signin' className="hover:bg-[#00A79D10] py-1 px-3  text-gray-500 rounded-xl">Sign In</NavLink> : ""
                
             }
           
@@ -105,8 +105,8 @@ const Navbar = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 2, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-      className=" dropdown dropdown-end ">
-                      <div tabIndex={0} role="button" className="cursor-pointer">
+      className="  ">
+                      <Link to='Dashboard/UserProfile'><div tabIndex={0}  className="cursor-pointer">
                           <div className="relative flex flex-col justify-center">
                             <div className="avatar myDIV ">
                             <div className="w-8 sm:w-12 rounded-full border-[3px]  border-[#00A79D]">
@@ -123,8 +123,8 @@ const Navbar = () => {
                             </div>
                         </div>                                                       
                         </div>
-                    </div>
-                        <div tabIndex={0} className="dropdown-content menu  bg-[#00A79D99] drop-shadow-xl/800 rounded-xl z-1 w-52  border-2 border-[#00A79D] ">
+                    </div></Link>
+                        {/* <div tabIndex={0} className="dropdown-content menu  bg-[#00A79D99] drop-shadow-xl/800 rounded-xl z-1 w-52  border-2 border-[#00A79D] ">
                     <div className="bg-base-200 rounded-br-[120px]">
                             <div className="border-b-2 border-b-[#00A79D] flex flex-col gap-1 text-md p-2">
                                 <h1 className="font-bold text-[#00A79D]">{user ? user?.displayName : "User Name"}</h1>
@@ -138,7 +138,7 @@ const Navbar = () => {
                           </div>
                           
                     </div>
-                      </div> 
+                      </div>  */}
     </motion.div>
     }
 

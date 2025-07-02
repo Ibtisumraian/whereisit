@@ -1,3 +1,4 @@
 .active{
-  background-color: #00A79D10;
+  /* background-color: #00A79D10; */
+  border-bottom: 2px solid #00A79D;
 }

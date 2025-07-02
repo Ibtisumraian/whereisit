@@ -7,6 +7,7 @@ import { useLoaderData, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 import { MdDateRange } from 'react-icons/md';
 import PromotionalSection from '../../components/PromotionalSection/PromotionalSection';
+import NewsletterSection from '../../components/CommonlyLostAndFound/NewsletterSection/NewsletterSection';
 
 const Home = () => {
     const recentItems = useLoaderData()
@@ -136,6 +137,9 @@ const Home = () => {
             </div>
             <div>
                 <PromotionalSection/>
+            </div>
+            <div>
+                <NewsletterSection/>
             </div>
         </div>
     );

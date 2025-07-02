@@ -39,6 +39,17 @@ const Navbar = () => {
       
     }))
   }
+
+  const links = <>
+    <NavLink to='/'>Home</NavLink>
+    <NavLink to='/allItems'>All Items</NavLink>
+    <NavLink to='/AboutUs'>AboutUs</NavLink>
+    <NavLink to='/Contact'>Contact</NavLink>
+    <NavLink to='/Support'>Support</NavLink>
+    <NavLink to='/Dashboard'>Dashboard</NavLink>
+  
+  </>
+
   return (
     <div className="shadow bg-white sticky top-0 z-50">
       <div className="navbar w-11/12 mx-auto py-9 ">
@@ -51,8 +62,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <div className="flex flex-col gap-3 text-md sm:text-base font-semibold">
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/allItems'>Lost & Found Items</NavLink>
+            {links}
           
           </div>
       </ul>
@@ -68,8 +78,10 @@ const Navbar = () => {
     animate={{ opacity: 2, y: 0 }}
     transition={{ duration: 1.5, ease: 'easeOut' }}
   className="navbar-center gap-4 hidden lg:flex">
-    <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">Home</NavLink>
+    {links}
+    {/* <NavLink to='/' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">Home</NavLink>
     <NavLink to='/allItems' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">Lost & Found Items</NavLink>
+    <NavLink to='/AboutUs' className="hover:bg-[#00A79D10] py-2 px-3 rounded-md text-gray-500">AboutUs</NavLink> */}
   </motion.div>
   <div className="navbar-end flex gap-3 sm:gap-7">
     <div className=" ">

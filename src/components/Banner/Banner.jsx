@@ -48,12 +48,12 @@ const Banner = () => {
             </h1>      
                         </Fade>
           <Fade direction="top" duration={700}>
-            <p className='fontInter text-sm sm:text-base text-gray-600'>Our Lost & Found system makes it easy to report missing items and check for items others have found. <br /> We're here to reunite you with your belongings.</p>
+            <p className='fontInter text-sm sm:text-base text-white'>Our Lost & Found system makes it easy to report missing items and check for items others have found. <br /> We're here to reunite you with your belongings.</p>
             </Fade>
           <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
         </div>
@@ -98,12 +98,12 @@ const Banner = () => {
             </h1>
           </Fade>
             <Fade direction="top" duration={800}>
-            <p className='fontInter text-sm sm:text-base text-gray-600'>Every day, valuable electronics like phones, laptops, and gadgets are lost—and often <br /> found by kind strangers. Use our platform to report lost items or check our database to find yours.</p>
+            <p className='fontInter text-sm sm:text-base text-white'>Every day, valuable electronics like phones, laptops, and gadgets are lost—and often <br /> found by kind strangers. Use our platform to report lost items or check our database to find yours.</p>
             </Fade>
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
                 
@@ -149,12 +149,12 @@ const Banner = () => {
             </h1>
           </Fade>
             <Fade direction="top" duration={600}>
-            <p className='fontInter text-sm sm:text-base text-gray-600'>We're here to reconnect hearts and heal families. Whether you’ve lost a pet or found someone’s furry friend, <br /> share the details and help bring comfort, hope, and joy back home.</p>
+            <p className='fontInter text-sm sm:text-base text-white'>We're here to reconnect hearts and heal families. Whether you’ve lost a pet or found someone’s furry friend, <br /> share the details and help bring comfort, hope, and joy back home.</p>
             </Fade>
               <Fade direction="top" duration={800}>
             <div className=''>
               <div className='block sm:hidden'></div>
-              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
+              <button className='btn w-fit bg-base-300 drop-shadow-xl/40 text-[#00A79D99] hover:bg-[#00A79D99] hover:text-white'>Read More</button>
             </div>
             </Fade>
                 

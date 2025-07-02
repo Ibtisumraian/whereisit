@@ -12,6 +12,10 @@ import AllRecovered from "../components/AllRecovered/AllRecovered";
 import ManageMyItems from "../components/ManageMyItems/ManageMyItems";
 import UpdatePost from "../components/UpdatePost/UpdatePost";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import AboutUs from "../components/AboutUs/AboutUs";
+import Contact from "../components/Contact/Contact";
+import Support from "../components/Support/Support";
+import DashboardRoute from "../Pages/Root/DashboardRoute/DashboardRoute";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +57,18 @@ export const router = createBrowserRouter([
           element: <PrivateRoute><AllRecovered /></PrivateRoute>
         },
         {
+          path: '/AboutUs',
+          element: <AboutUs/>
+        },
+        {
+          path: '/Contact',
+          element: <Contact />
+        },
+        {
+          path: '/Support',
+          element: <Support />
+        },
+        {
           path: '/manageMyItems',
           element: <PrivateRoute><ManageMyItems/></PrivateRoute>
         },
@@ -79,6 +95,29 @@ export const router = createBrowserRouter([
           element: <PrivateRoute><AddLostAndFound /></PrivateRoute>
         },
     ]
+  },
+  {
+  path: '/Dashboard',
+  element: <PrivateRoute><DashboardRoute /></PrivateRoute>,
+  children: [
+    // {
+    //   index: true,
+    //   element: <PrivateRoute><DashboardHome /></PrivateRoute>
+    // },
+    // {
+    //   path: 'AddRecipes',
+    //   element: <PrivateRoute><AddRecipes /></PrivateRoute>
+    // },
+    // {
+    //   path: 'MyRecipes',
+    //   element: <PrivateRoute><MyRecipes /></PrivateRoute>
+    // },
+    // {
+    //   path: 'UserProfile',
+    //   element:<PrivateRoute><UserProfile/></PrivateRoute>
+    // },
+    
+  ]
   },
   {
     path: '*',

@@ -79,10 +79,10 @@ const AddLostAndFound = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 2, y: 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className='w-fit lg:w-9/12 mx-auto bg-[#00A79D99]  p-5 sm:p-10 drop-shadow-xl/800 rounded-2xl lg:rounded-full mb-16'>
+                className='w-fit  mx-auto bg-[#00A79D99]  p-5 sm:p-10 drop-shadow-xl/800 rounded-2xl  mb-16'>
                 
-                <div className='flex justify-center lg:flex-none  lg:grid lg:grid-cols-2 items-center'>
-                    <motion.div
+                <div className='flex justify-center lg:flex-none   items-center'>
+                    {/* <motion.div
                         animate={{
                             
                             y: [0, -5, 5, -5, 5, 0]
@@ -94,7 +94,7 @@ const AddLostAndFound = () => {
                         }}
                         className='drop-shadow-xl/80 hidden lg:block'>
                         <img className='h-[500px] lg:h-[600px] w-full ' src="https://res.cloudinary.com/dd4np04jl/image/upload/v1749632658/undraw_new-notifications_wvqc-removebg-preview_agginr.png" alt="" />
-                    </motion.div>
+                    </motion.div> */}
                     <div
                         className="  h-[775px]"
                         >

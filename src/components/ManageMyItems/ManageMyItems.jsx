@@ -75,7 +75,7 @@ const ManageMyItems = () => {
                 <div className='text-center p-2 py-4 mt-20 mb-10 '>
                     {!loading && items?.length > 0 ? <h1 className='text-2xl sm:text-4xl font-bold fontInter text-gray-600'>Manage My Items</h1> : ""}
                 </div>
-            <div className='w-7/12 mx-auto mb-32'>
+            <div className='w-10/12 mx-auto mb-32'>
                 
                 
                 {!loading ? <>{items?.length > 0 ?
@@ -110,7 +110,7 @@ const ManageMyItems = () => {
                                             <td>{ item?.post_type }</td>
                                             <td>{item?.user_name}</td>
                                             {item?.recovered ? <td className='text-[#00A79D]'> Recovered </td> : <td className='text-red-400'> Not Recovered </td> }                                      
-                                            <td><MdOutlineEdit onClick={()=>navigate(`/updateItems/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2 cursor-pointer' /></td>
+                                            <td><MdOutlineEdit onClick={()=>navigate(`/Dashboard/UpdatePost/${item._id}`)} className='text-4xl rounded-xl text-white bg-[#00A79D] p-2 cursor-pointer' /></td>
                                             <td><MdDeleteOutline onClick={()=>handleItemDeleteButton(item._id)}  className='text-4xl rounded-xl text-white bg-red-400 p-2 cursor-pointer' /></td>
                                         </tr>
                                     })

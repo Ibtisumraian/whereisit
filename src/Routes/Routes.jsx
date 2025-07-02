@@ -17,6 +17,7 @@ import Contact from "../components/Contact/Contact";
 import Support from "../components/Support/Support";
 import DashboardRoute from "../Pages/Root/DashboardRoute/DashboardRoute";
 import DashboardOverview from "../components/DashboardOverview/DashboardOverview";
+import UserProfile from "../components/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -53,10 +54,10 @@ export const router = createBrowserRouter([
           }),
           element: <PrivateRoute><PostDetails /></PrivateRoute>
         },
-        {
-          path: '/allRecovered',
-          element: <PrivateRoute><AllRecovered /></PrivateRoute>
-        },
+        // {
+        //   path: '/allRecovered',
+        //   element: <PrivateRoute><AllRecovered /></PrivateRoute>
+        // },
         {
           path: '/AboutUs',
           element: <AboutUs/>
@@ -69,20 +70,20 @@ export const router = createBrowserRouter([
           path: '/Support',
           element: <Support />
         },
-        {
-          path: '/manageMyItems',
-          element: <PrivateRoute><ManageMyItems/></PrivateRoute>
-        },
-        {
-          path: '//updateItems/:id',
-          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
-            <span className="loading loading-bars loading-xl"></span>
-          </div>,
-          loader: ({ params }) => fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`, {
-            credentials: 'include'
-          }),
-          element: <PrivateRoute><UpdatePost/></PrivateRoute>
-        },
+        // {
+        //   path: '/manageMyItems',
+        //   element: <PrivateRoute><ManageMyItems/></PrivateRoute>
+        // },
+        // {
+        //   path: '//updateItems/:id',
+        //   hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+        //     <span className="loading loading-bars loading-xl"></span>
+        //   </div>,
+        //   loader: ({ params }) => fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`, {
+        //     credentials: 'include'
+        //   }),
+        //   element: <PrivateRoute><UpdatePost/></PrivateRoute>
+        // },
         {
           path: '/Signin',
           element: <PrivateRouteTwo><SignIn /></PrivateRouteTwo>
@@ -91,10 +92,10 @@ export const router = createBrowserRouter([
           path: '/Signup',
           element: <PrivateRouteTwo><SignUp /></PrivateRouteTwo>
         },
-        {
-          path: '/addItems',
-          element: <PrivateRoute><AddLostAndFound /></PrivateRoute>
-        },
+        // {
+        //   path: '/addItems',
+        //   element: <PrivateRoute><AddLostAndFound /></PrivateRoute>
+        // },
     ]
   },
   {
@@ -105,18 +106,32 @@ export const router = createBrowserRouter([
       index: true,
       element: <PrivateRoute><DashboardOverview /></PrivateRoute>
     },
-    // {
-    //   path: 'AddRecipes',
-    //   element: <PrivateRoute><AddRecipes /></PrivateRoute>
-    // },
-    // {
-    //   path: 'MyRecipes',
-    //   element: <PrivateRoute><MyRecipes /></PrivateRoute>
-    // },
-    // {
-    //   path: 'UserProfile',
-    //   element:<PrivateRoute><UserProfile/></PrivateRoute>
-    // },
+    {
+          path: 'manageMyItems',
+          element: <PrivateRoute><ManageMyItems/></PrivateRoute>
+    },
+    {
+          path: 'UpdatePost/:id',
+          hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>,
+          loader: ({ params }) => fetch(`https://lost-and-found-server-mu.vercel.app/items/${params.id}`, {
+            credentials: 'include'
+          }),
+          element: <PrivateRoute><UpdatePost/></PrivateRoute>
+    },
+    {
+          path: 'allRecovered',
+          element: <PrivateRoute><AllRecovered /></PrivateRoute>
+    },    
+    {
+      path: 'UserProfile',
+      element: <PrivateRoute><UserProfile /></PrivateRoute>
+    },
+    {
+      path: 'addItems',
+      element:<PrivateRoute><AddLostAndFound/></PrivateRoute>
+    },
     
   ]
   },

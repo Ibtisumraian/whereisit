@@ -8,6 +8,7 @@ import { MdOutlineReportProblem, MdOutlineAddLocation } from 'react-icons/md';
 import { Link, Outlet } from 'react-router';
 import { Bounce, toast } from 'react-toastify';
 import { auth } from '../../../components/firebase/firebase.init';
+import { RiDeviceRecoverLine } from 'react-icons/ri';
 
 const DashboardRoute = () => {
 
@@ -40,16 +41,19 @@ const DashboardRoute = () => {
           <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <GoHome size={20} /> Home
           </Link>
-          <Link to="/DashboardRoute" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+          <Link to="/Dashboard" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <MdOutlineDashboard size={20} /> Overview
           </Link>
           <Link to="UserProfile" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <FaUserCircle size={20} /> User Profile
           </Link>
-          <Link to="MyReports" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+          <Link to="manageMyItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <MdOutlineReportProblem size={20} /> My Reports
           </Link>
-          <Link to="ReportLostItem" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+          <Link to="allRecovered" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
+            <RiDeviceRecoverLine size={20} /> My Recovered
+          </Link>
+          <Link to="addItems" className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/20 transition">
             <MdOutlineAddLocation size={20} /> Report Lost Item
           </Link>
 

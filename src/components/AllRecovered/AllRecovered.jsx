@@ -10,7 +10,7 @@ import { MdDateRange } from 'react-icons/md';
 const AllRecovered = () => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
-    const [layout, setLayout] = useState(false)
+    const [layout, setLayout] = useState(true)
     const { user } = useAuth()
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const AllRecovered = () => {
 
     return (
         <div>
-            <div className='w-9/12 2xl:w-8/12 mx-auto mb-32'>
+            <div className='w-10/12 2xl:w-11/12 mx-auto mb-32'>
                 <div className='text-center py-4 mt-20 mb-10 '>
                     {!loading && items?.length > 0 ? <h1 className='text-3xl sm:text-4xl font-bold fontInter text-gray-600'>All Recovered Items</h1> : ""}
                 </div>

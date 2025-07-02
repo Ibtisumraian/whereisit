@@ -117,7 +117,7 @@ const AllLostAndFoundForDashboard = () => {
                                      
             </motion.div>
 
-                <div className='w-11/12 mx-auto flex items-center gap-3 py-8'>
+                <div className='w-full mx-auto flex items-center gap-3 py-8'>
                 <motion.button
                     initial={{ opacity: 0 }}
                     whileHover={{ scale: 1.2 }}
@@ -158,7 +158,7 @@ const AllLostAndFoundForDashboard = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="border-b last:border-none hover:bg-gray-50 transition cursor-pointer"
+                className="border-b last:border-none hover:bg-gray-50 transition "
               >
                 <td className="py-3 px-4 whitespace-nowrap">
                   <img
@@ -183,7 +183,7 @@ const AllLostAndFoundForDashboard = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-sm font-medium bg-[#00A79D] text-white px-4 py-2 rounded-full hover:bg-white hover:text-[#00A79D] hover:border hover:border-[#00A79D] transition w-full sm:w-auto"
+                    className="text-sm font-medium bg-[#00A79D] cursor-pointer text-white px-4 py-2 rounded-full hover:bg-white hover:text-[#00A79D] hover:border hover:border-[#00A79D] transition w-full sm:w-auto"
                     onClick={() => handleViewDetailsButton(item._id)}
                     aria-label={`View details for ${item.title}`}
                   >

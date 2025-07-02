@@ -1,44 +1,14 @@
 import React from "react";
 import './navbar.css'
-import { Link, NavLink, useNavigate } from "react-router";
+import { Link, NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase.init";
-import { Bounce, toast } from "react-toastify";
+import { Bounce } from "react-toastify";
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import { motion } from 'framer-motion';
 const Navbar = () => {
   const { user } = useAuth()
-  const navigate = useNavigate()
-  // let userName = "";
-  // if (!loading) {
-  //       let str = user?.displayName;
-  //       let newStr = str?.replace(" ", "_");
-  //       userName = newStr
-  // }  
-  
-  const handleSignOut = () => {
-    signOut(auth)
-    .then(()=>{
-      toast.success('Sign Out Successful!', {
-          position: "top-left",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Bounce,
-      });
-      navigate('/')
-    })
-      .catch((error => {
-      console.log(error);
-      
-    }))
-  }
+
 
   const links = <>
     <NavLink to='/'>Home</NavLink>

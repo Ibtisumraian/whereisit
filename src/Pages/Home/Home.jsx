@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../../components/Banner/Banner';
 import { FaCalendarDays, FaMapLocationDot } from 'react-icons/fa6';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
@@ -10,10 +10,14 @@ import PromotionalSection from '../../components/PromotionalSection/PromotionalS
 import NewsletterSection from '../../components/CommonlyLostAndFound/NewsletterSection/NewsletterSection';
 
 const Home = () => {
-    const recentItems = useLoaderData()
+    // const recentItems = useLoaderData()
+    const [ recentItems, setRecentItems ] = useState([])
 
     const navigate = useNavigate()
     useEffect(() => {
+        fetch('https://lost-and-found-server-mu.vercel.app/recent')
+        .then(res=>res.json())
+        .then(data=>setRecentItems(data))
         document.title = "WhereIsIt";
     }, []);
     const handleViewDetailsButton = (id) => {

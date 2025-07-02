@@ -245,7 +245,7 @@ const UpdatePost = () => {
                                         {/* Add button */}
                                         <div className='mt-3 '>
                                             <button className='btn text-lg py-6 bg-[#00A79D] text-white w-full rounded-2xl'>
-                                                Add Post
+                                                Update Post
                                             </button>
                                         </div>
 

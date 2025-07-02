@@ -36,7 +36,7 @@ const supportOptions = [
     description:
       "Browse through our FAQs and guides to quickly find answers to your questions.",
     icon: <FaQuestionCircle className="text-4xl text-[#00A79D]" />,
-    link: "/faq",
+    link: "/contact",
   },
   {
     title: "Email Support",
@@ -50,7 +50,7 @@ const supportOptions = [
     description:
       "Get tips, share experiences, and connect with other users in our community space.",
     icon: <FaUsers className="text-4xl text-[#00A79D]" />,
-    link: "/community",
+    link: "/contact",
   },
 ];
 

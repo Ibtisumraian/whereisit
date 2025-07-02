@@ -31,9 +31,6 @@ export const router = createBrowserRouter([
             hydrateFallbackElement: <div className='w-[90%] py-40 mx-auto flex justify-center items-center'>
               <span className="loading loading-bars loading-xl"></span>
             </div>,
-            loader: () => fetch('https://lost-and-found-server-mu.vercel.app/recent', {
-              credentials: 'include'
-            }),
             Component: Home
         },
         {

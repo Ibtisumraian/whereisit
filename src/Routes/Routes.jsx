@@ -16,6 +16,7 @@ import AboutUs from "../components/AboutUs/AboutUs";
 import Contact from "../components/Contact/Contact";
 import Support from "../components/Support/Support";
 import DashboardRoute from "../Pages/Root/DashboardRoute/DashboardRoute";
+import DashboardOverview from "../components/DashboardOverview/DashboardOverview";
 
 export const router = createBrowserRouter([
   {
@@ -100,10 +101,10 @@ export const router = createBrowserRouter([
   path: '/Dashboard',
   element: <PrivateRoute><DashboardRoute /></PrivateRoute>,
   children: [
-    // {
-    //   index: true,
-    //   element: <PrivateRoute><DashboardHome /></PrivateRoute>
-    // },
+    {
+      index: true,
+      element: <PrivateRoute><DashboardOverview /></PrivateRoute>
+    },
     // {
     //   path: 'AddRecipes',
     //   element: <PrivateRoute><AddRecipes /></PrivateRoute>
